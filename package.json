@@ -1,0 +1,56 @@
+{
+  "name": "calendar",
+  "version": "0.0.2",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikelborm/calendar.git"
+  },
+  "author": "nikelborm",
+  "bugs": {
+    "url": "https://github.com/nikelborm/calendar"
+  },
+  "dependencies": {
+    "date-fns": "^2.22.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "styled-components": "^5.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "buildp": "react-scripts build --profile"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=15.0.1"
+  },
+  "homepage": ".",
+  "optionalDependencies": {
+    "jshint": "^2.12.0",
+    "source-map-explorer": "^2.4.2"
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  }
+}
