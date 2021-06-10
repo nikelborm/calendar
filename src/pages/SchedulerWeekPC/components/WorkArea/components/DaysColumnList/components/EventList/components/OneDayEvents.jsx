@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { EventCard } from "./EventCard";
 
 const OneDayEventList = styled.div`
+	border: solid;
+	border-width: 3px 3px 0 0;
 	grid-row-start: 2;
 	position: relative;
 	background: linear-gradient(90deg,blanchedalmond,lightgrey);
