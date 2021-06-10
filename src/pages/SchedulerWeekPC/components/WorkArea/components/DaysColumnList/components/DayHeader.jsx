@@ -17,6 +17,6 @@ const DayHeader = styled.div`
 	/* 1 - hours marks column */
 	grid-column-start: ${ props => ( props.dayOfWeek || 7 ) + 1 };
 `;
-DayHeader.displayName = "Header";
+DayHeader.displayName = "DayHeader";
 
 export { DayHeader };

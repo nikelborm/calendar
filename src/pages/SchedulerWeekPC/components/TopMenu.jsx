@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { SwitchPresentationDropDown } from "./SwitchPresentationDropDown";
 import { ReactComponent as ArrowRight } from "./ArrowRight.svg";
 import { ReactComponent as ArrowLeft } from "./ArrowLeft.svg";
+
 const TodayButton = styled.button`
 	--expand-button-height: 60px;
 	--expand-button-width: 200px;
@@ -27,6 +28,7 @@ const ArrowSwitchButtonLeft = styled.div`
 	color: #ffffff;
 	margin-top: 8px;
 `;
+
 const ArrowSwitchButtonRight = styled.div`
 	height: var(--expand-arrowbutton-height);
     width: var(--expand-arrowbutton-width);
@@ -35,6 +37,7 @@ const ArrowSwitchButtonRight = styled.div`
 	color: #ffffff;
 	margin-top: 8px;
 `;
+
 const ArrowSwitchButtons = styled.button`
 	--expand-arrowbutton-height: 40px;
 	--expand-arrowbutton-width: 40px;
@@ -45,6 +48,11 @@ const ArrowSwitchButtons = styled.button`
 	border: none;
 	background-color:#000000;
 `;
+
+TodayButton.displayName = "TodayButton";
+ArrowSwitchButtonRight.displayName = "ArrowSwitchButtonRight";
+ArrowSwitchButtonLeft.displayName = "ArrowSwitchButtonLeft";
+ArrowSwitchButtons.displayName = "ArrowSwitchButtons";
 
 export class TopMenu extends React.PureComponent {
 	render() {
