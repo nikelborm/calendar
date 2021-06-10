@@ -10,13 +10,13 @@ import styled from "styled-components";
 // 		);
 // 	}
 // }
-const Header = styled.div`
-	background-color: green;
+const DayHeader = styled.div`
+	background-color: #efefef;
 	grid-row-start: 1;
 	place-self: center center;
 	/* 1 - hours marks column */
 	grid-column-start: ${ props => ( props.dayOfWeek || 7 ) + 1 };
 `;
-Header.displayName = "Header";
+DayHeader.displayName = "Header";
 
-export { Header };
+export { DayHeader };

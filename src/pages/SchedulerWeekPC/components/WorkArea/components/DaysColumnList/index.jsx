@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Headers } from "./components/Headers";
+import { DayHeaders } from "./components/DayHeaders";
 import { EventList } from "./components/EventList";
 import { ColumnsContainer } from "./components/ColumnsContainer";
 import { ReportWrapper } from "./components/ReportWrapper";
@@ -33,7 +33,7 @@ export class DaysColumnList extends React.Component {
 						<HourMarkersColumn/>
 						<CurrentMomentRedLine/>
 						<HourLines/>
-						<Headers
+						<DayHeaders
 							start={ dateStartingTheWeek }
 							end={ dateFinishingTheWeek }
 						/>
