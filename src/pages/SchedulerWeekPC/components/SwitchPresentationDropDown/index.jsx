@@ -9,23 +9,21 @@ export class SwitchPresentationDropDown extends React.Component {
     state = {
         isOpened: false
     };
-    
-    onMouseEnter = () => this.setState({ isOpened: true });
-    onMouseLeave = () => this.setState({ isOpened: false });
-    ExpandablePartClick = () => this.setState({ isOpened: false });
+    close = () => this.setState( { isOpened: false } );
+    open = () => this.setState( { isOpened: true } );
     render() {
         return (
             <DropdownMouseReactionArea
-                onMouseEnter={ this.onMouseEnter }
-                onMouseLeave={ this.onMouseLeave }
+                onMouseEnter={ this.open }
+                onMouseLeave={ this.close }
             >
-                <ExpandButton /* onClick={ this.onMouseEnter } */ >
+                <ExpandButton>
                     Выбрать представление
                     { this.state.isOpened ? "▲" : "▼" }
                 </ExpandButton>
                 { this.state.isOpened && (
-                    <ExpandablePart 
-                        onClick={ this.ExpandablePartClick }
+                    <ExpandablePart
+                        onClick={ this.close }
                     >
                         <DropDownMenuPoint to="/monthPC/asd" children="Месяц"/>
                         <DropDownMenuPoint to="/weekPC/asd"  children="Неделя"/>

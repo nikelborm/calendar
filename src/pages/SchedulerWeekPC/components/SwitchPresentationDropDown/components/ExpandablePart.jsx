@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const ExpandablePart = styled.div`
     background: #efefef;
     position: absolute;
