@@ -5,7 +5,7 @@ const ColumnsContainer = styled.div`
 	width: 1700px;
 	background: linear-gradient(blue, red);
 	display: grid;
-	grid-template-columns: repeat( 7, 1fr ); // amount of days to show
+	grid-template-columns: 40px repeat( 7, 1fr ); // 7 - amount of days to show
 	grid-template-rows: 40px 1fr;
 `;
 ColumnsContainer.displayName = "ColumnsContainer";

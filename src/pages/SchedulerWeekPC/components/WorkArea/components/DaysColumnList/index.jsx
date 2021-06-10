@@ -4,6 +4,9 @@ import { Headers } from "./components/Headers";
 import { EventList } from "./components/EventList";
 import { ColumnsContainer } from "./components/ColumnsContainer";
 import { ReportWrapper } from "./components/ReportWrapper";
+import { HourMarkersColumn } from "./components/HourMarkersColumn";
+import { CurrentMomentRedLine } from "./components/CurrentMomentRedLine";
+import { HourLines } from "./components/HourLines";
 
 export class DaysColumnList extends React.Component {
 	render() {
@@ -27,6 +30,9 @@ export class DaysColumnList extends React.Component {
 				{ report
 					? <ReportWrapper children={ report }/>
 					: <>
+						<HourMarkersColumn/>
+						<CurrentMomentRedLine/>
+						<HourLines/>
 						<Headers
 							start={ dateStartingTheWeek }
 							end={ dateFinishingTheWeek }

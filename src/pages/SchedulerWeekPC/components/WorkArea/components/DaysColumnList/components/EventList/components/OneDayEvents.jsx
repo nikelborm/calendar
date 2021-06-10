@@ -7,7 +7,8 @@ const OneDayEventList = styled.div`
 	grid-row-start: 2;
 	position: relative;
 	background: linear-gradient(90deg,blanchedalmond,lightgrey);
-	grid-column-start: ${ props => props.dayOfWeek || 7 };
+	/* 1 - hours marks column */
+	grid-column-start: ${ props => ( props.dayOfWeek || 7 ) + 1 };
 `;
 OneDayEventList.displayName = "OneDayEventList";
 

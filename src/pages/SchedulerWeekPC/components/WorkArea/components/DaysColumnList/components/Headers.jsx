@@ -9,7 +9,8 @@ export class Headers extends React.PureComponent {
 			eachDayOfInterval( this.props ).map( dayDate => (
 				<Header
 					key={ dayDate.getDay() }
-					children={ dayDate.toLocaleDateString("ru") }
+					dayDate={ dayDate }
+					children={ dayDate.toLocaleDateString( "ru" ) }
 					dayOfWeek={ dayDate.getDay() }
 				/>
 			) )
