@@ -14,7 +14,8 @@ const Header = styled.div`
 	background-color: green;
 	grid-row-start: 1;
 	place-self: center center;
-	grid-column-start: ${ props => props.dayOfWeek || 7 };
+	/* 1 - hours marks column */
+	grid-column-start: ${ props => ( props.dayOfWeek || 7 ) + 1 };
 `;
 Header.displayName = "Header";
 
