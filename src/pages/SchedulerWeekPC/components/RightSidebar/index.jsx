@@ -6,7 +6,7 @@ export class RightSidebar extends React.Component {
 	render() {
 		return (
 			<div style={{backgroundColor:"grey"}}>
-				<WeekChooser/>
+				<WeekChooser shiftDateAndLoadItsEvents={this.props.shiftDateAndLoadItsEvents}/>
 				<EventUpdatesNotifications/>
 			</div>
 		);
