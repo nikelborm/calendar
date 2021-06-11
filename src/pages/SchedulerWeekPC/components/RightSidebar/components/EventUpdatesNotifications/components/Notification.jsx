@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const NotificationCard = styled.div`
 	position: relative;
-	margin: 15px 5px 3px 5px;
+	margin: 20px 5px 3px 5px;
 	height: ${ props => props.height * 100 + "%" };
 	background: #FF2800;
 	width: auto;
