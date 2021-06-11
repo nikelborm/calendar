@@ -95,7 +95,9 @@ export class SchedulerWeekPCPageContent extends React.Component {
                     dateStartingTheWeek={ this.state.dateStartingTheWeek }
                     dateFinishingTheWeek={ this.state.dateFinishingTheWeek }
                 />
-                <RightSidebar/>
+                <RightSidebar
+                    shiftDateAndLoadItsEvents={this.shiftDateAndLoadItsEvents}
+                />
             </div>
         );
     }
