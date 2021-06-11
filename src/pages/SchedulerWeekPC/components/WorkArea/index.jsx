@@ -3,6 +3,11 @@ import { CurrentMomentRedLine } from "./components/CurrentMomentRedLine";
 import { DaysColumnList } from "./components/DaysColumnList";
 import { EventInfoTip } from "./components/EventInfoTip";
 import { HourMarkersColumn } from "./components/HourMarkersColumn";
+import styled from "styled-components";
+
+const Area = styled.div`
+		position: relative;
+`;
 
 export class WorkArea extends React.Component {
 	render() {
@@ -14,7 +19,7 @@ export class WorkArea extends React.Component {
 			dateFinishingTheWeek,
 		} = this.props;
 		return (
-			<div>
+			<Area>
 				<HourMarkersColumn/>
 				<CurrentMomentRedLine/>
 				<DaysColumnList
@@ -25,7 +30,7 @@ export class WorkArea extends React.Component {
 					dateFinishingTheWeek={ dateFinishingTheWeek }
 				/>
 				<EventInfoTip/>
-			</div>
+			</Area>
 		);
 	}
 }

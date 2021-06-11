@@ -3,11 +3,38 @@ import startOfWeek from "date-fns/startOfWeek";
 import endOfWeek from "date-fns/endOfWeek";
 import add from "date-fns/add";
 import sub from "date-fns/sub";
+import styled from 'styled-components';
 
 import { WorkArea } from "./components/WorkArea";
 import { TopMenu } from "./components/TopMenu";
 import { RightSidebar } from "./components/RightSidebar";
 import { Service } from "../../ServicePlaceholder";
+
+const Week = styled.div`
+    display: flex;
+    flex-direction: column;
+
+`;
+
+const Top = styled.div`
+    max-width: 1500px;
+    min-width: 500px;
+`;
+
+const Area = styled.div`
+    max-width: 1700px;
+    display: flex;
+    float: top;
+`;
+
+const Right = styled.div`
+    max-width: 200px;
+    margin-left: 100px;
+    float: right; 
+    display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+`;
 
 export class SchedulerWeekPCPageContent extends React.Component {
     eventsLoadingController = new AbortController();
@@ -81,22 +108,26 @@ export class SchedulerWeekPCPageContent extends React.Component {
     }
     render() {
         return (
-            <div>
-                <TopMenu
-                    previousSlideOnClick={ this.goToPreviousWeekAndLoadItsEvents }
-                    nextSlideOnClick={ this.goToNextWeekAndLoadItsEvents }
-                    goTodayOnClick={ this.goToCurrentWeekAndLoadItsEvents }
-                />
-                <WorkArea
-                    // userID={ this.props.match.params.userID }
-                    eventsGroupedByDay={ this.state.eventsInSelectedWeekGroupedByDay }
-                    isEventsLoadingFinished={ this.state.isEventsLoadingFinished }
-                    errorDuringEventsLoading={ this.state.errorDuringEventsLoading }
-                    dateStartingTheWeek={ this.state.dateStartingTheWeek }
-                    dateFinishingTheWeek={ this.state.dateFinishingTheWeek }
-                />
-                <RightSidebar/>
-            </div>
+            <Week>
+                <Top>
+                    <TopMenu
+                        previousSlideOnClick={ this.goToPreviousWeekAndLoadItsEvents }
+                        nextSlideOnClick={ this.goToNextWeekAndLoadItsEvents }
+                        goTodayOnClick={ this.goToCurrentWeekAndLoadItsEvents }
+                    />
+                </Top>
+                <Area>
+                    <WorkArea
+                        // userID={ this.props.match.params.userID }
+                        eventsGroupedByDay={ this.state.eventsInSelectedWeekGroupedByDay }
+                        isEventsLoadingFinished={ this.state.isEventsLoadingFinished }
+                        errorDuringEventsLoading={ this.state.errorDuringEventsLoading }
+                        dateStartingTheWeek={ this.state.dateStartingTheWeek }
+                        dateFinishingTheWeek={ this.state.dateFinishingTheWeek }
+                    />
+                    <Right><RightSidebar/></Right>
+                </Area>
+            </Week>
         );
     }
 }
