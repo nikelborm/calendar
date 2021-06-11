@@ -1,14 +1,15 @@
 import React from "react";
 import { EventUpdatesNotifications } from "./components/EventUpdatesNotifications";
 import { WeekChooser } from "./components/WeekChooser";
+import { SidebarContent } from "./components/SidebarContent";
 
 export class RightSidebar extends React.Component {
 	render() {
 		return (
-			<div style={{backgroundColor:"grey"}}>
+			<SidebarContent>
 				<WeekChooser shiftDateAndLoadItsEvents={this.props.shiftDateAndLoadItsEvents}/>
 				<EventUpdatesNotifications/>
-			</div>
+			</SidebarContent>
 		);
 	}
 }
