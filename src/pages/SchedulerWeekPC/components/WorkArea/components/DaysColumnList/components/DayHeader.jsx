@@ -10,7 +10,7 @@ import styled from "styled-components";
 // 		);
 // 	}
 // }
-const DayHeader = styled.div`
+export const DayHeader = styled.div`
 	background-color: #efefef;
 	grid-row-start: 1;
 	place-self: center center;
@@ -18,5 +18,3 @@ const DayHeader = styled.div`
 	grid-column-start: ${ props => ( props.dayOfWeek || 7 ) + 1 };
 `;
 DayHeader.displayName = "DayHeader";
-
-export { DayHeader };
