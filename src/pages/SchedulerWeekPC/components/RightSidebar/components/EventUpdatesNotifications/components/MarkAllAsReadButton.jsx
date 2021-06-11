@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const MarkAllAsReadButtonText = styled.button`
 	position: fixed;
-	margin-top: 430px;
+	margin-top: 449px;
 	width:300px;
 	padding: 5px;
 	font-family: 'IBM Plex Sans', sans-serif;
@@ -12,8 +12,8 @@ const MarkAllAsReadButtonText = styled.button`
 	line-height: 16px;
 	text-align: center;
 	background:#ffffff;
-	border: 0.5px solid #5F5F5F;
-	border-style: solid none none none;
+	border: 2px solid #5F5F5F;
+	border-style: solid none solid none;
 	z-index: 999;
 `;
 
