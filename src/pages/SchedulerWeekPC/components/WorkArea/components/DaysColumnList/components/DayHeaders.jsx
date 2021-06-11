@@ -10,7 +10,7 @@ export class DayHeaders extends React.PureComponent {
 				<DayHeader
 					key={ dayDate.getDay() }
 					dayDate={ dayDate }
-					children={ dayDate.toLocaleDateString( "ru" ) }
+					children={ dayDate.toLocaleDateString( "ru", {weekday:'short', day:'2-digit', month:'long'}) }
 					dayOfWeek={ dayDate.getDay() }
 				/>
 			) )
