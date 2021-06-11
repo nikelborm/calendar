@@ -4,24 +4,33 @@ import styled from "styled-components";
 
 const NotificationCard = styled.div`
 	position: relative;
-	margin-bottom: 10px;
+	margin: 15px 5px 3px 5px;
+	height: ${ props => props.height * 100 + "%" };
+	background: #FF2800;
+	width: auto;
+	padding: 5px;
+	border-radius: 10px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 13px;
+	font-weight: 600;
 `;
 
-const Header = styled.div`
-	
+NotificationCard.displayName = "NotificationCard";
+
+const HeaderNotification = styled.div`
+	text-align: center;
+	margin-bottom: 5px;
 `;
 
-const Name = styled.div`
-	
+HeaderNotification.displayName = "HeaderNotification";
+
+const TextOfNotification = styled.div`
+	margin-left: 5%;
+	margin-bottom: 2px;
 `;
 
-const EventDate = styled.div`
-	
-`;
+TextOfNotification.displayName = "TextOfNotification";
 
-const Classroom = styled.div`
-	
-`;
 // dateBegin.getDay() + " "
 // + dateBegin.getMonth() + ", "
 // + new Intl.DateTimeFormat('ru-RU', options).format(dateBegin).toString() + ", "
@@ -34,15 +43,15 @@ export class Notification extends React.Component {
 		const dateEnd = new Date(this.props.eventDateEnd);
 		return (
 			<NotificationCard>
-				<Header>{this.props.notificationType}</Header>
-				<Name>{this.props.eventName}</Name>
-				<EventDate>{
+				<HeaderNotification>{this.props.notificationType}</HeaderNotification>
+				<TextOfNotification>{this.props.eventName}</TextOfNotification>
+				<TextOfNotification>{
 					dateBegin.toLocaleDateString('ru',{weekday:'long', day:'2-digit', month:'long'}) +
 					", " + dateBegin.getHours() + ":" + dateBegin.getMinutes() +
 					" - " + dateEnd.getHours() + ":" + dateEnd.getMinutes()
 				}
-				</EventDate>
-				<Classroom>{this.props.eventClassroom}</Classroom>
+				</TextOfNotification>
+				<TextOfNotification>{this.props.eventClassroom}</TextOfNotification>
 			</NotificationCard>
 		);
 	}
