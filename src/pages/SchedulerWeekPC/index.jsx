@@ -66,10 +66,11 @@ export class SchedulerWeekPCPageContent extends React.Component {
     goToNextWeekAndLoadItsEvents = () => this.shiftDateAndLoadItsEvents(
         date => add( date, { weeks: 1 } )
     );
-    goToCurrentWeekAndLoadItsEvents = () => this.shiftDateAndLoadItsEvents(
-        () => startOfWeek( new Date(), { weekStartsOn: 1 } ),
-        () => endOfWeek( new Date(), { weekStartsOn: 1 } )
+    goToDateAndLoadItsWeekEvents = date => this.shiftDateAndLoadItsEvents(
+        () => startOfWeek( date, { weekStartsOn: 1 } ),
+        () => endOfWeek( date, { weekStartsOn: 1 } )
     );
+    goToCurrentWeekAndLoadItsEvents = () => this.goToDateAndLoadItsWeekEvents( new Date() );
 	componentDidMount() {
 		// TODO: Здесь надо как-то получать дату начала и конца текущей недели и передавать её в загрузчик
 		this.loadEventsForAWeekGroupedByDay(
@@ -97,7 +98,7 @@ export class SchedulerWeekPCPageContent extends React.Component {
                     dateFinishingTheWeek={ this.state.dateFinishingTheWeek }
                 />
                 <RightSidebar
-                    shiftDateAndLoadItsEvents={ this.shiftDateAndLoadItsEvents }
+                    goToDateAndLoadItsWeekEvents={ this.goToDateAndLoadItsWeekEvents }
                 />
             </PageContentWrapper>
         );
