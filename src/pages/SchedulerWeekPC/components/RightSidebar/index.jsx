@@ -12,10 +12,9 @@ export class RightSidebar extends React.Component {
 	render() {
 		return (
 			<Sidebar>
+				<WeekChooser/>
 				Что-то тут точно будет<br/>
 				dfdfsdfsdfsdf<br/>
-
-				<WeekChooser/>
 				<EventUpdatesNotifications/>
 			</Sidebar>
 		);

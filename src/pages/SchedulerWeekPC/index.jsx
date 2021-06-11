@@ -22,14 +22,15 @@ const Top = styled.div`
 `;
 
 const Area = styled.div`
+    max-width: 600px;
     max-width: 1700px;
     display: flex;
     float: top;
 `;
 
 const Right = styled.div`
-    max-width: 200px;
-    margin-left: 100px;
+    max-width: 220px;
+    margin-left: 10px;
     float: right; 
     display: flex;
 	flex-direction: column;
