@@ -5,7 +5,7 @@ import { WeekChooser } from "./components/WeekChooser";
 export class RightSidebar extends React.Component {
 	render() {
 		return (
-			<div>
+			<div style={{backgroundColor:"grey"}}>
 				<WeekChooser/>
 				<EventUpdatesNotifications/>
 			</div>

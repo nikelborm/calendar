@@ -7,7 +7,6 @@ const DropdownMouseReactionArea = styled.div`
     width: var(--expand-button-width);
     position: relative;
     text-align: center;
-    margin-left: 80%;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;
     cursor: pointer;
