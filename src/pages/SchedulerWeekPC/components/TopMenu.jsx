@@ -4,75 +4,66 @@ import { SwitchPresentationDropDown } from "./SwitchPresentationDropDown";
 import { ReactComponent as ArrowRight } from "./ArrowRight.svg";
 import { ReactComponent as ArrowLeft } from "./ArrowLeft.svg";
 
+const MenuWrapper = styled.div`
+	grid-area: 1 / 1 / 1 / 2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 65px;
+    min-width: 500px;
+	padding: 0 20px;
+`;
+MenuWrapper.displayName = "MenuWrapper";
+
 const TodayButton = styled.button`
-	--expand-button-height: 60px;
-	--expand-button-width: 200px;
-	height: var(--expand-button-height);
-    width: var(--expand-button-width);
-	position:relative;
-	margin-left:7%;
-	margin-top: 1%;
+	height: 38px;
+    width: 150px;
 	background-color:#FF2800;
 	border: none;
-	border-radius:6px;
+	border-radius: 6px;
 	color: #FFFFFF;
 	font-family: 'IBM Plex Sans', sans-serif;
-	font-size: 30px;
+	font-size: 20px;
 `;
-
-const ArrowSwitchButtonLeft = styled.div`
-	height: var(--expand-arrowbutton-height);
-    width: var(--expand-arrowbutton-width);
-	background-color:#000000;
-	border: none;
-	color: #ffffff;
-	margin-top: 8px;
-`;
-
-const ArrowSwitchButtonRight = styled.div`
-	height: var(--expand-arrowbutton-height);
-    width: var(--expand-arrowbutton-width);
-	background-color:#000000;
-	border: none;
-	color: #ffffff;
-	margin-top: 8px;
-`;
-
-const ArrowSwitchButtons = styled.button`
-	--expand-arrowbutton-height: 40px;
-	--expand-arrowbutton-width: 40px;
-	display: flex;
-	position: absolute;
-	top: 2.5%;
-	left: 25%;
-	border: none;
-	background-color:#000000;
-`;
-
 TodayButton.displayName = "TodayButton";
-ArrowSwitchButtonRight.displayName = "ArrowSwitchButtonRight";
-ArrowSwitchButtonLeft.displayName = "ArrowSwitchButtonLeft";
+
+const ArrowSwitchButtons = styled.div`
+	display: flex;
+	border: none;
+	border-radius: 6px;
+	overflow: hidden;
+`;
 ArrowSwitchButtons.displayName = "ArrowSwitchButtons";
+
+const ArrowButton = styled.button`
+	height: 40px;
+    width: 40px;
+	background-color:#000000;
+	border: none;
+	color: #ffffff;
+	padding: 0;
+`;
+ArrowButton.displayName = "ArrowButton";
 
 export class TopMenu extends React.PureComponent {
 	render() {
 		return (
-			<div>
-				<ArrowSwitchButtons>
-					<ArrowSwitchButtonLeft onClick={ this.props.previousSlideOnClick }>
-						<ArrowLeft/>
-					</ArrowSwitchButtonLeft>
-					<ArrowSwitchButtonRight onClick={ this.props.nextSlideOnClick }>
-						<ArrowRight/>
-					</ArrowSwitchButtonRight>
-				</ArrowSwitchButtons>
+			<MenuWrapper>
 				<TodayButton onClick={ this.props.goTodayOnClick }>
 					Сегодня
 				</TodayButton>
+				<ArrowSwitchButtons>
+					<ArrowButton onClick={ this.props.previousSlideOnClick }>
+						<ArrowLeft/>
+					</ArrowButton>
+					<ArrowButton onClick={ this.props.nextSlideOnClick }>
+						<ArrowRight/>
+					</ArrowButton>
+				</ArrowSwitchButtons>
 				{/* Тут компонент будет рендерить много react-router`овских Link`ов
 				и кликая на них можно будет перемещаться на другие страницы */}
 				<SwitchPresentationDropDown/>
-			</div>
+			</MenuWrapper>
 		);
 	}
 }

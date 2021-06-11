@@ -12,7 +12,7 @@ export class WorkArea extends React.Component {
 			dateFinishingTheWeek,
 		} = this.props;
 		return (
-			<div>
+			<>
 				<DaysColumnList
 					eventsGroupedByDay={ eventsGroupedByDay }
 					isEventsLoadingFinished={ isEventsLoadingFinished }
@@ -21,7 +21,7 @@ export class WorkArea extends React.Component {
 					dateFinishingTheWeek={ dateFinishingTheWeek }
 				/>
 				<EventInfoTip/>
-			</div>
+			</>
 		);
 	}
 }
