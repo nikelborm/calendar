@@ -15,12 +15,12 @@ export class EventUpdatesNotifications extends React.Component {
 		return (
 			<NotificationContainer>
 				<Header/>
+				<MarkAllAsReadButton/>
 				{ notifications.map( info =>
 					<Notification
 						{ ...info }
 					/>
 				) }
-				<MarkAllAsReadButton/>
 				<NotificationsArea/>
 				<ScrollableNotificationList/>
 			</NotificationContainer>

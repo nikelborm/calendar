@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const CardContent = styled.div`
+export const CardContent = styled.div`
     position: absolute;
     box-sizing: border-box;
     padding: 15px 0 5px 20px;
@@ -14,7 +14,7 @@ const CardContent = styled.div`
 `;
 CardContent.displayName = "CardContent";
 
-const CardLine = styled.p`
+export const CardLine = styled.p`
     display: block;
     font-weight: bold;
     font-family: Arial;
