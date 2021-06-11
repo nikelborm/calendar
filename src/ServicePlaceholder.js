@@ -74,21 +74,21 @@ export class Service {
             notifications: [
                 {
                     notificationType: "Добавлена новая пара!",
-                    EventName: "Пр. Английский",
+                    eventName: "Пр. Английский",
                     eventDateBegin: "2021-02-01T07:15:00.000Z",
                     eventDateEnd:   "2021-02-01T08:50:00.000Z",
                     eventClassroom: "8 - 621",
 
                 },{
                     notificationType: "Изменение в паре!",
-                    EventName: "Пр. Математика",
+                    eventName: "Пр. Математика",
                     eventDateBegin: "2021-04-02T09:15:00.000Z",
                     eventDateEnd:   "2021-04-02T10:50:00.000Z",
                     eventClassroom: "8 - 623",
 
                 },{
                     notificationType: "Добавлена новая пара!",
-                    EventName: "Пр. Физика",
+                    eventName: "Пр. Физика",
                     eventDateBegin: "2021-06-03T12:15:00.000Z",
                     eventDateEnd:   "2021-06-03T13:50:00.000Z",
                     eventClassroom: "8 - 624",
