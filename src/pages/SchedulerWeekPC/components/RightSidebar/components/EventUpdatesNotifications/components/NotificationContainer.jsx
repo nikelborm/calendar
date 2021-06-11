@@ -6,5 +6,6 @@ export const NotificationContainer = styled.div`
 	border: 1px solid #000000;
 	/* width: 350px; */
 	border-radius: 2px;
+	background: #EFEFEF;
 `;
 NotificationContainer.displayName = "NotificationContainer";
