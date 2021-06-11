@@ -24,7 +24,7 @@ const Classroom = styled.div`
 `;
 // dateBegin.getDay() + " "
 // + dateBegin.getMonth() + ", "
-// + new Intl.DateTimeFormat('ru-RU', options).format(dateBegin).toString() + ", "
+// + new Intl.DateTimeFormat("ru-RU", options).format(dateBegin).toString() + ", "
 // + dateBegin.getHours() + ":" + dateBegin.getMinutes() + " - "
 // + dateEnd.getHours() + ":" + dateEnd.getMinutes()
 export class Notification extends React.Component {
@@ -37,7 +37,7 @@ export class Notification extends React.Component {
 				<Header>{this.props.notificationType}</Header>
 				<Name>{this.props.eventName}</Name>
 				<EventDate>{
-					dateBegin.toLocaleDateString('ru',{weekday:'long', day:'2-digit', month:'long'}) +
+					dateBegin.toLocaleDateString("ru",{weekday:"long", day:"2-digit", month:"long"}) +
 					", " + dateBegin.getHours() + ":" + dateBegin.getMinutes() +
 					" - " + dateEnd.getHours() + ":" + dateEnd.getMinutes()
 				}
