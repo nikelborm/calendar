@@ -14,21 +14,18 @@ const NotificationCard = styled.div`
 	font-size: 13px;
 	font-weight: 600;
 `;
-
 NotificationCard.displayName = "NotificationCard";
 
 const HeaderNotification = styled.div`
 	text-align: center;
 	margin-bottom: 5px;
 `;
-
 HeaderNotification.displayName = "HeaderNotification";
 
 const TextOfNotification = styled.div`
 	margin-left: 5%;
 	margin-bottom: 2px;
 `;
-
 TextOfNotification.displayName = "TextOfNotification";
 
 // dateBegin.getDay() + " "
