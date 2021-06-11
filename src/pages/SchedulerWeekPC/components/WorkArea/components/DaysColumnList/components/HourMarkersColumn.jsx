@@ -3,13 +3,13 @@ import React from "react";
 
 const HourMarkers = styled.div`
 	grid-row-start: 2;
-	position: relative;
-	/* background: #efefef; */
 	grid-column-start: 1;
-	border:1px solid red;
+	position: relative;
+	background: #efefef;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: center;
 `;
 HourMarkers.displayName = "HourMarkers";
 
