@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ColumnsContainer = styled.div`
+export const ColumnsContainer = styled.div`
 	background: #efefef;
 	display: grid;
 	grid-area: 2 / 1;
@@ -8,5 +8,3 @@ const ColumnsContainer = styled.div`
 	grid-template-rows: 40px 1fr;
 `;
 ColumnsContainer.displayName = "ColumnsContainer";
-
-export { ColumnsContainer };

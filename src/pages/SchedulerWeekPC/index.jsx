@@ -8,16 +8,7 @@ import { WorkArea } from "./components/WorkArea";
 import { TopMenu } from "./components/TopMenu";
 import { RightSidebar } from "./components/RightSidebar";
 import { Service } from "../../ServicePlaceholder";
-import styled from "styled-components";
-
-const PageContentWrapper = styled.div`
-    display: grid;
-    grid-template-rows: 65px 1fr 20px;
-    grid-template-columns: 1fr 300px;
-    height: 100%;
-    width: 100%;
-`;
-PageContentWrapper.displayName = "PageContentWrapper";
+import { PageContentWrapper } from "./components/PageContentWrapper";
 
 export class SchedulerWeekPCPageContent extends React.Component {
     eventsLoadingController = new AbortController();
