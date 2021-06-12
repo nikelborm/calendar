@@ -36,6 +36,7 @@ export class DaysColumnList extends React.Component {
 							start={ dateStartingTheWeek }
 							end={ dateFinishingTheWeek }
 						/>
+						
 						<EventList
 							events={ eventsGroupedByDay }
 						/>
