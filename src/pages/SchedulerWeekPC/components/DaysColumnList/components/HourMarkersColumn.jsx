@@ -19,7 +19,7 @@ export class HourMarkersColumn extends React.Component {
 		return (
 			<HourMarkers>
 				{ this.hours.map( itemHours =>
-					<span>
+					<span key={ itemHours }>
 						{ itemHours }
 					</span>
 				) }
