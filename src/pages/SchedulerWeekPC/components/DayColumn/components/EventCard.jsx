@@ -19,15 +19,29 @@ export class EventCard extends React.PureComponent {
 
         const ratioOfEventAndColumnHeights = ( eventMarginBottomInMinutes - eventMarginTopInMinutes ) / minutesInEventsColumn;
         const ratioOfEventTopMarginAndColumnHeight = eventMarginTopInMinutes / minutesInEventsColumn;
+
+
+        let justify = "space-around";
+        let indent = 0;
+        let indentTop = 0;
+
+        if (ratioOfEventAndColumnHeights * 100 > 20) {
+            justify = "flex-start";
+            indent = 10;
+            indentTop = 10;
+        }
+        console.log(ratioOfEventAndColumnHeights * 1000);
+
         return (
             <CardContent
                 top={ ratioOfEventTopMarginAndColumnHeight }
                 height={ ratioOfEventAndColumnHeights }
+                justify={ justify }
             >
-                <CardLine>
+                <CardLine indent={ indent } indentTop={ indentTop }>
                     { this.props.name }
                 </CardLine>
-                <CardLine>
+                <CardLine indent={ indent }>
                     { pad( dateBegin.getHours() ) }
                     :
                     { pad( dateBegin.getMinutes() ) }
@@ -36,7 +50,7 @@ export class EventCard extends React.PureComponent {
                     :
                     { pad( dateEnd.getMinutes() ) }
                 </CardLine>
-                <CardLine>
+                <CardLine indent={ indent }>
                     { this.props.classroom }
                 </CardLine>
             </CardContent>
