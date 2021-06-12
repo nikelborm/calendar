@@ -27,6 +27,7 @@ export class OneDaysEvents extends React.Component {
 						dateEnd={ item.lessonDateEnd }
 					/>
 				) }
+
 			</OneDayEventList>
 		);
 	}
