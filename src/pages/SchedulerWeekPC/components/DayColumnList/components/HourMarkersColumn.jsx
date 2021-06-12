@@ -5,11 +5,15 @@ const MarkersContainer = styled.div`
 	grid-row-start: 2;
 	grid-column-start: 1;
 	position: relative;
+	top: -10px;
 	background: #efefef;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	& span {
+		height:1px;
+	}
 `;
 MarkersContainer.displayName = "MarkersContainer";
 
