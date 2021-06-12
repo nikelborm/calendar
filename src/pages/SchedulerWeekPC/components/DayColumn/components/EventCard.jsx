@@ -1,7 +1,7 @@
 import React from "react";
 
 import { CardContent } from "./CardContent";
-import { CardLine } from "./CardLine";
+import { CardLine, CardMainLine } from "./CardLine";
 
 const pad = v => ( "" + v ).padStart( 2, "0" );
 
@@ -47,9 +47,9 @@ export class EventCard extends React.PureComponent {
                 height={ ratioOfEventAndColumnHeights }
                 justify={ justify }
             >
-                <CardLine indent={ indent } indentTop={ indentTop } show={ showEventName }>
+                <CardMainLine indent={ indent } indentTop={ indentTop } show={ showEventName }>
                     { this.props.name }
-                </CardLine>
+                </CardMainLine>
                 <CardLine indent={ indent } show={ showEventPeriod }>
                     { pad( dateBegin.getHours() ) }
                     :
