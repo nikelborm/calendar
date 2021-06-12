@@ -4,11 +4,11 @@ import endOfWeek from "date-fns/endOfWeek";
 import add from "date-fns/add";
 import sub from "date-fns/sub";
 
-import { WorkArea } from "./components/WorkArea";
 import { TopMenu } from "./components/TopMenu";
 import { RightSidebar } from "./components/RightSidebar";
 import { Service } from "../../ServicePlaceholder";
 import { PageContentWrapper } from "./components/PageContentWrapper";
+import { DaysColumnList } from "./components/DaysColumnList";
 
 export class SchedulerWeekPCPageContent extends React.Component {
     eventsLoadingController = new AbortController();
@@ -89,14 +89,15 @@ export class SchedulerWeekPCPageContent extends React.Component {
                     nextSlideOnClick={ this.goToNextWeekAndLoadItsEvents }
                     goTodayOnClick={ this.goToCurrentWeekAndLoadItsEvents }
                 />
-                <WorkArea
-                    // userID={ this.props.match.params.userID }
+                <DaysColumnList
+					// userID={ this.props.match.params.userID }
                     eventsGroupedByDay={ this.state.eventsInSelectedWeekGroupedByDay }
                     isEventsLoadingFinished={ this.state.isEventsLoadingFinished }
                     errorDuringEventsLoading={ this.state.errorDuringEventsLoading }
                     dateStartingTheWeek={ this.state.dateStartingTheWeek }
                     dateFinishingTheWeek={ this.state.dateFinishingTheWeek }
-                />
+				/>
+				{/* <EventInfoTip/> */}
                 <RightSidebar
                     goToDateAndLoadItsWeekEvents={ this.goToDateAndLoadItsWeekEvents }
                 />
