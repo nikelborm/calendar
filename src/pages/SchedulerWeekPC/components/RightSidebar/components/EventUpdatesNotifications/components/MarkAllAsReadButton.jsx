@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const MarkAllAsReadButtonText = styled.button`
-	position: fixed;
-	margin-top: 449px;
 	width:300px;
 	padding: 5px;
 	font-family: 'IBM Plex Sans', sans-serif;
@@ -14,14 +12,15 @@ const MarkAllAsReadButtonText = styled.button`
 	background:#ffffff;
 	border: 2px solid #5F5F5F;
 	border-style: solid none solid none;
-	z-index: 999;
+	cursor: pointer;
 `;
+MarkAllAsReadButtonText.displayName = "MarkAllAsReadButtonText";
 
 export class MarkAllAsReadButton extends React.Component {
 	render() {
 		return (
 			<MarkAllAsReadButtonText>
-				Очистить Уведомление
+				Очистить уведомления
 			</MarkAllAsReadButtonText>
 		);
 	}
