@@ -13,6 +13,7 @@ export const CardContent = styled.div`
     display:flex;
     flex-direction:column;
     margin: 0;
+    z-index:3;
     justify-content: ${ props => props.justify};
 `;
 CardContent.displayName = "CardContent";
