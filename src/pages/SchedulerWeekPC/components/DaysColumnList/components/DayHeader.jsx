@@ -1,15 +1,5 @@
-import React from "react";
 import styled from "styled-components";
 
-// export class Header extends React.Component {
-// 	render() {
-// 		return (
-// 			<div>
-
-// 			</div>
-// 		);
-// 	}
-// }
 export const DayHeader = styled.div`
 	font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
