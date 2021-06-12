@@ -40,12 +40,12 @@ export class Service {
                         lessonName: "Лек. Экономика",
                         lessonClassroom: "8 - 621",
                         lessonDateBegin: "2021-06-02T09:00:00.000Z",
-                        lessonDateEnd:   "2021-06-02T10:35:00.000Z",
+                        lessonDateEnd:   "2021-06-02T09:30:00.000Z",
                     }, {
                         lessonName: "Пр. Физика",
                         lessonClassroom: "8 - 624",
                         lessonDateBegin: "2021-06-02T07:15:00.000Z",
-                        lessonDateEnd:   "2021-06-02T08:50:00.000Z",
+                        lessonDateEnd:   "2021-06-02T08:15:00.000Z",
                     },
                 ],
                 "2021-06-03T00:00:00.000Z" : [
