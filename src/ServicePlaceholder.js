@@ -1,7 +1,8 @@
 const imitateLongTimeLoading = () => new Promise(
+    // TODO: реализовать поведение для отмены запроса через abortController
     resolve => setTimeout(
         () => resolve(),
-        2000
+        1000
     )
 );
 
@@ -14,7 +15,6 @@ export class Service {
         // который вызвал метод сервиса, строить поведение, которое как-то
         // отреагирует на ошибку
 
-        // TODO: реализовать поведение для отмены запроса через abortController
         return {
             events: {
                 "2021-05-31T00:00:00.000Z" : [
@@ -35,7 +35,6 @@ export class Service {
                         lessonDateEnd:   "2021-05-31T18:00:00.000Z",
                     },
                 ],
-                // "2021-06-01T00:00:00.000Z" : [],
                 "2021-06-02T00:00:00.000Z" : [
                     {
                         lessonName: "Лек. Экономика",
@@ -63,8 +62,24 @@ export class Service {
                     },
                 ],
                 "2021-06-04T00:00:00.000Z" : [],
-                // "2021-06-05T00:00:00.000Z" : [],
-                "2021-06-06T00:00:00.000Z" : [],
+                "2021-06-12T00:00:00.000Z" : [
+                    {
+                        lessonName: "Пр. Английский",
+                        lessonClassroom: "8 - 623",
+                        lessonDateBegin: "2021-06-12T05:00:00.000Z",
+                        lessonDateEnd:   "2021-06-12T07:00:00.000Z",
+                    },{
+                        lessonName: "Пр. Английский",
+                        lessonClassroom: "8 - 623",
+                        lessonDateBegin: "2021-06-12T08:00:00.000Z",
+                        lessonDateEnd:   "2021-06-12T15:00:00.000Z",
+                    },{
+                        lessonName: "Пр. Английский2",
+                        lessonClassroom: "8 - 623",
+                        lessonDateBegin: "2021-06-12T16:00:00.000Z",
+                        lessonDateEnd:   "2021-06-12T18:00:00.000Z",
+                    },
+                ],
             }
         }
     }

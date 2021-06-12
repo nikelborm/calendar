@@ -1,23 +1,18 @@
 import React from "react";
+import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
 
-import { DayHeaders } from "./components/DayHeaders";
-import { EventList } from "./components/EventList";
 import { ColumnsContainer } from "./components/ColumnsContainer";
 import { ReportWrapper } from "./components/ReportWrapper";
-import { HourMarkersColumn } from "./components/HourMarkersColumn";
-import { CurrentMomentRedLine } from "./components/CurrentMomentRedLine";
-import { HourLines } from "./components/HourLines";
 
-export class DaysColumnList extends React.Component {
+export class WorkArea extends React.Component {
 	render() {
 		const {
-			eventsGroupedByDay,
+			renderWhenSuccessfullyLoaded,
 			isEventsLoadingFinished,
 			errorDuringEventsLoading,
-			dateStartingTheWeek,
-			dateFinishingTheWeek,
+			firstColumnDate,
+			lastColumnDate,
 		} = this.props;
-		// errorDuringEventsLoading = new Error();
 		let report;
 		if ( !isEventsLoadingFinished ) report = "Пожалуйста подождите, идёт загрузка данных";
 		if ( errorDuringEventsLoading ) report = <p>
@@ -26,21 +21,15 @@ export class DaysColumnList extends React.Component {
 			<p>Error message: { errorDuringEventsLoading.message }</p>
 		</p>;
 		return (
-			<ColumnsContainer>
+			<ColumnsContainer
+				amountOfColumns={ differenceInCalendarDays(
+					lastColumnDate,
+					firstColumnDate
+				) + 1/* так как есть ещё HourMarkersColumn */ }
+			>
 				{ report
 					? <ReportWrapper children={ report }/>
-					: <>
-						<HourMarkersColumn/>
-						<CurrentMomentRedLine/>
-						<HourLines/>
-						<DayHeaders
-							start={ dateStartingTheWeek }
-							end={ dateFinishingTheWeek }
-						/>
-						<EventList
-							events={ eventsGroupedByDay }
-						/>
-					</>
+					: renderWhenSuccessfullyLoaded()
 				}
 			</ColumnsContainer>
 		);

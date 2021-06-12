@@ -8,6 +8,6 @@ export const DayHeader = styled.div`
 	grid-row-start: 1;
 	place-self: center center;
 	/* 1 - hours marks column */
-	grid-column-start: ${ props => ( props.dayOfWeek || 7 ) + 1 };
+	grid-column-start: ${ props => props.columnNumber };
 `;
 DayHeader.displayName = "DayHeader";

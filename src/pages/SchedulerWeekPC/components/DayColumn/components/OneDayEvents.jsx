@@ -3,20 +3,19 @@ import styled from "styled-components";
 
 import { EventCard } from "./EventCard";
 
-const OneDayEventList = styled.div`
+const EventsContainer = styled.div`
 	grid-row-start: 2;
 	position: relative;
 	background: #efefef;
 	/* 1 - hours marks column */
-	grid-column-start: ${ props => ( props.dayOfWeek || 7 ) + 1 };
+	grid-column-start: ${ props => props.columnNumber };
 `;
-OneDayEventList.displayName = "OneDayEventList";
+EventsContainer.displayName = "EventsContainer";
 
-export class OneDaysEvents extends React.Component {
+export class OneDayEvents extends React.Component {
 	render() {
-		const dayOfWeek = new Date( this.props.dayDate ).getDay();
 		return (
-			<OneDayEventList dayOfWeek={ dayOfWeek }>
+			<EventsContainer columnNumber={ this.props.columnNumber }>
 				{/* TODO: Сделать рендеринг этих временных полосочек */}
 				{ this.props.events.map( item =>
 					<EventCard
@@ -27,7 +26,7 @@ export class OneDaysEvents extends React.Component {
 						dateEnd={ item.lessonDateEnd }
 					/>
 				) }
-			</OneDayEventList>
+			</EventsContainer>
 		);
 	}
 }
