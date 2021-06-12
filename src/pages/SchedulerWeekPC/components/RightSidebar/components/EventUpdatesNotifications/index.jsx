@@ -5,9 +5,8 @@ import { Service } from "../../../../../../ServicePlaceholder";
 import { Header } from "./components/Header";
 import { MarkAllAsReadButton } from "./components/MarkAllAsReadButton";
 import { Notification } from "./components/Notification";
-import { NotificationsArea } from "./components/NotificationsArea";
-import { ScrollableNotificationList } from "./components/ScrollableNotificationList";
 import { NotificationContainer } from "./components/NotificationContainer";
+import { ScrollableArea } from "./components/ScrollableArea";
 
 export class EventUpdatesNotifications extends React.Component {
 	render() {
@@ -15,14 +14,14 @@ export class EventUpdatesNotifications extends React.Component {
 		return (
 			<NotificationContainer>
 				<Header/>
+				<ScrollableArea>
+					{ notifications.map( info =>
+						<Notification
+							{ ...info }
+						/>
+					) }
+				</ScrollableArea>
 				<MarkAllAsReadButton/>
-				{ notifications.map( info =>
-					<Notification
-						{ ...info }
-					/>
-				) }
-				<NotificationsArea/>
-				<ScrollableNotificationList/>
 			</NotificationContainer>
 		);
 	}
