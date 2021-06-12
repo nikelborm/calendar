@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MenuWrapper = styled.div`
-	grid-area: 1 / 1 / 1 / 2;
+	grid-area: 1 / 1 / 2 / 2;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
