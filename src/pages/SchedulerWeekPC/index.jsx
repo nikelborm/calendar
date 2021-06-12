@@ -7,8 +7,9 @@ import sub from "date-fns/sub";
 import { TopMenu } from "./components/TopMenu";
 import { RightSidebar } from "./components/RightSidebar";
 import { Service } from "../../ServicePlaceholder";
-import { PageContentWrapper } from "./components/PageContentWrapper";
-import { DaysColumnList } from "./components/DaysColumnList";
+import { PageContentContainer } from "./components/PageContentContainer";
+import { WorkArea } from "./components/WorkArea";
+import { DayColumnList } from "./components/DayColumnList";
 
 export class SchedulerWeekPCPageContent extends React.Component {
     eventsLoadingController = new AbortController();
@@ -72,7 +73,6 @@ export class SchedulerWeekPCPageContent extends React.Component {
     );
     goToCurrentWeekAndLoadItsEvents = () => this.goToDateAndLoadItsWeekEvents( new Date() );
 	componentDidMount() {
-		// TODO: Здесь надо как-то получать дату начала и конца текущей недели и передавать её в загрузчик
 		this.loadEventsForAWeekGroupedByDay(
             this.state.dateStartingTheWeek,
             this.state.dateFinishingTheWeek
@@ -82,26 +82,39 @@ export class SchedulerWeekPCPageContent extends React.Component {
         this.eventsLoadingController.abort();
     }
     render() {
+        const {
+            eventsInSelectedWeekGroupedByDay,
+            isEventsLoadingFinished,
+            errorDuringEventsLoading,
+            dateStartingTheWeek,
+            dateFinishingTheWeek,
+        } = this.state;
         return (
-            <PageContentWrapper>
+            <PageContentContainer>
                 <TopMenu
                     previousSlideOnClick={ this.goToPreviousWeekAndLoadItsEvents }
                     nextSlideOnClick={ this.goToNextWeekAndLoadItsEvents }
                     goTodayOnClick={ this.goToCurrentWeekAndLoadItsEvents }
                 />
-                <DaysColumnList
-					// userID={ this.props.match.params.userID }
-                    eventsGroupedByDay={ this.state.eventsInSelectedWeekGroupedByDay }
-                    isEventsLoadingFinished={ this.state.isEventsLoadingFinished }
-                    errorDuringEventsLoading={ this.state.errorDuringEventsLoading }
-                    dateStartingTheWeek={ this.state.dateStartingTheWeek }
-                    dateFinishingTheWeek={ this.state.dateFinishingTheWeek }
+                <WorkArea
+                    isEventsLoadingFinished={ isEventsLoadingFinished }
+                    errorDuringEventsLoading={ errorDuringEventsLoading }
+                    // errorDuringEventsLoading={ new Error( "АБОООБА" ) }
+                    firstColumnDate={ dateStartingTheWeek }
+                    lastColumnDate={ dateFinishingTheWeek }
+                    renderWhenSuccessfullyLoaded={ () => (
+                        <DayColumnList
+                            firstColumnDate={ dateStartingTheWeek }
+                            lastColumnDate={ dateFinishingTheWeek }
+                            eventsGroupedByDay={ eventsInSelectedWeekGroupedByDay }
+                        />
+                    ) }
 				/>
 				{/* <EventInfoTip/> */}
                 <RightSidebar
                     goToDateAndLoadItsWeekEvents={ this.goToDateAndLoadItsWeekEvents }
                 />
-            </PageContentWrapper>
+            </PageContentContainer>
         );
     }
 }

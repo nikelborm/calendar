@@ -5,14 +5,14 @@ import { Service } from "../../../../../../ServicePlaceholder";
 import { Header } from "./components/Header";
 import { MarkAllAsReadButton } from "./components/MarkAllAsReadButton";
 import { Notification } from "./components/Notification";
-import { NotificationContainer } from "./components/NotificationContainer";
+import { EventUpdatesNotificationsWrapper } from "./components/EventUpdatesNotificationsWrapper";
 import { ScrollableArea } from "./components/ScrollableArea";
 
 export class EventUpdatesNotifications extends React.Component {
 	render() {
 		const { notifications } = Service.getNotification();
 		return (
-			<NotificationContainer>
+			<EventUpdatesNotificationsWrapper>
 				<Header/>
 				<ScrollableArea>
 					{ notifications.map( info =>
@@ -22,7 +22,7 @@ export class EventUpdatesNotifications extends React.Component {
 					) }
 				</ScrollableArea>
 				<MarkAllAsReadButton/>
-			</NotificationContainer>
+			</EventUpdatesNotificationsWrapper>
 		);
 	}
 }

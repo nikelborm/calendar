@@ -1,27 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 
-export const CardContent = styled.div`
-    position: absolute;
-    box-sizing: border-box;
-    padding: 15px 0 5px 20px;
-    left:5px;
-    right:5px;
-    top: ${ props => props.top * 100 + "%" };
-    background: #FF2800;
-    border-radius: 15px;
-    height:${ props => props.height * 100 + "%" };
-`;
-CardContent.displayName = "CardContent";
-
-export const CardLine = styled.p`
-    display: block;
-    font-weight: bold;
-    font-family: Arial;
-    margin: 0;
-    margin-bottom: 10px;
-`;
-CardLine.displayName = "CardLine";
+import { CardContent } from "./CardContent";
+import { CardLine } from "./CardLine";
 
 const pad = v => ( "" + v ).padStart( 2, "0" );
 
