@@ -31,7 +31,6 @@ export class DaysColumnList extends React.Component {
 					? <ReportWrapper children={ report }/>
 					: <>
 						<HourMarkersColumn/>
-						<CurrentMomentRedLine/>
 						<HourLines/>
 						<DayHeaders
 							start={ dateStartingTheWeek }
@@ -40,6 +39,9 @@ export class DaysColumnList extends React.Component {
 						<EventList
 							events={ eventsGroupedByDay }
 						/>
+						<CurrentMomentRedLine/>
+
+
 					</>
 				}
 			</ColumnsContainer>
