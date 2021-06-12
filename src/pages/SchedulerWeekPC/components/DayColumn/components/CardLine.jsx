@@ -5,6 +5,7 @@ export const CardLine = styled.p`
     font-weight: bold;
     font-family: Arial;
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: ${ props => props.indent + "px"};
+    margin-top: ${ props => props.indentTop + "px"};
 `;
 CardLine.displayName = "CardLine";
