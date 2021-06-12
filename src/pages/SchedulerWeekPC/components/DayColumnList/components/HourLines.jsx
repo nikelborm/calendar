@@ -21,7 +21,7 @@ Line.displayName = "Line";
 export class HourLines extends React.PureComponent {
 	render() {
 		let lines = [];
-		for ( let i = 1; i <= 15; i++)
+		for ( let i = 1; i <= 14; i++ )
 			lines.push( <Line key={ i }/> );
 
 		return (
