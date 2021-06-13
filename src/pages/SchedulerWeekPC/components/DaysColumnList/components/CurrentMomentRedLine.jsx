@@ -7,7 +7,7 @@ const Line = styled.div`
 	position: absolute;
 	width: 100%;
 	top: ${props => (props.linePosition * 100 + "%")};
-	
+	z-index: 999;
 `;
 Line.dispalayName = "Line";
 
@@ -16,8 +16,7 @@ const BlackLine = styled.div`
 	border-top: 3px solid black;
 	width: 100%;
 	top: 8px;
-	
-	
+	z-index: 999;
 `;
 BlackLine.dispalayName = "BlackLine";
 
