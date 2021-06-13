@@ -7,5 +7,6 @@ export const ArrowButton = styled.button`
 	border: none;
 	color: #ffffff;
 	padding: 0;
+	outline: none;
 `;
 ArrowButton.displayName = "ArrowButton";
