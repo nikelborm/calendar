@@ -1,22 +1,21 @@
 import styled from "styled-components";
-import "./ReportWarpper.css";
+import "./ReportWrapper.css";
 import React from "react";
 
-export const Report = styled.div`
+export const ReportContainer = styled.div`
 	grid-area: 1 / 1 / -1 / -1;
-	display: grid;
-	place-items: center;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
 	background: #EFEFEF;
 `;
+ReportContainer.displayName = "ReportContainer";
 
-Report.displayName = "Report";
-
-  export class ReportWrapper extends React.PureComponent {
+export class ReportWrapper extends React.PureComponent {
 	render() {
-		
 		return (
-			<Report>
-				
+			<ReportContainer>
 				<div class="windows8">
 					<div class="wBall" id="wBall_1">
 						<div class="wInnerBall"></div>
@@ -33,16 +32,14 @@ Report.displayName = "Report";
 					<div class="wBall" id="wBall_5">
 						<div class="wInnerBall"></div>
 					</div>
-					
 				</div>
-
-				<div class="text">Идёт загрузка мероприятий с {new Date(this.props.startWeek).getDate()}.{new Date(this.props.startWeek).getMonth()} по <no br/> 
-				{new Date(this.props.finishWeek).getDate()}.{new Date(this.props.finishWeek).getMonth()}
+				<div class="text">
+					Идёт загрузка мероприятий с
+					{ new Date( this.props.startWeek ).getDate() }.{ new Date( this.props.startWeek ).getMonth() }
+					по
+					{ new Date( this.props.finishWeek ).getDate() }.{ new Date( this.props.finishWeek ).getMonth() }
 				</div>
-				
-			</Report>
-			
+			</ReportContainer>
 		);
 	}
 }
-
