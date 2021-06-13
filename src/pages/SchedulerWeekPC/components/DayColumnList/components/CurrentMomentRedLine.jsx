@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const LineContainer = styled.div`
 	grid-area: 2 / 1 / -1 / -1;
 	position: relative;
-	z-index: 2;
+	z-index: 4;
 `;
 LineContainer.dispalayName = "LineContainer";
 
