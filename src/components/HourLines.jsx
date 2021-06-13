@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { amountOfHourMarkers } from "../../../timeConstants";
+import { amountOfHourMarkers } from "../timeConstants";
 
 const LinesContainer = styled.div`
 	display: flex;
