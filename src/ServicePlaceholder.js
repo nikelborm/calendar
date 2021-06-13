@@ -83,7 +83,7 @@ export class Service {
             }
         }
     }
-    static async getEventsForADay( dayDate ) {
+    static async getEventsForADay( dayDate, abortController ) {
         await imitateLongTimeLoading();
         // В данной реализации никакие ошибки не могут быть возвращены,
         // Но сетевые запросы могут их вернуть и тут в сервисе все возможные
