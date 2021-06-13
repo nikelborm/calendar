@@ -8,5 +8,6 @@ export const MenuWrapper = styled.div`
 	height: 65px;
     min-width: 500px;
 	padding: 0 20px;
+	background-color: #000000;
 `;
 MenuWrapper.displayName = "MenuWrapper";
