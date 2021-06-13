@@ -16,7 +16,7 @@ export class Service {
         // отреагирует на ошибку
 
         return {
-            events: {
+            eventsGroupedByDay: {
                 "2021-05-31T00:00:00.000Z" : [
                     {
                         lessonName: "Пр. Английский",
@@ -91,7 +91,24 @@ export class Service {
         // который вызвал метод сервиса, строить поведение, которое как-то
         // отреагирует на ошибку
         return {
-            events: []
+            events: [
+                {
+                    lessonName: "Пр. Английский",
+                    lessonClassroom: "8 - 623",
+                    lessonDateBegin: "2021-06-13T05:00:00.000Z",
+                    lessonDateEnd:   "2021-06-13T07:00:00.000Z",
+                },{
+                    lessonName: "Пр. Английский",
+                    lessonClassroom: "8 - 623",
+                    lessonDateBegin: "2021-06-13T08:00:00.000Z",
+                    lessonDateEnd:   "2021-06-13T15:00:00.000Z",
+                },{
+                    lessonName: "Пр. Английский2",
+                    lessonClassroom: "8 - 623",
+                    lessonDateBegin: "2021-06-13T16:00:00.000Z",
+                    lessonDateEnd:   "2021-06-13T18:00:00.000Z",
+                },
+            ]
         };
     }
     static getNotification() {
@@ -179,4 +196,3 @@ export class Service {
         }
     }
 }
-
