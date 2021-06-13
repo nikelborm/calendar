@@ -8,7 +8,7 @@ import { Service } from "../../ServicePlaceholder";
 import { TopMenu } from "../../components/TopMenu";
 import { RightSidebar } from "../../components/RightSidebar";
 import { PageContentContainer } from "../../components/PageContentContainer";
-import { WorkArea } from "./WorkArea";
+import { WorkArea } from "../../components/WorkArea";
 import { DayColumnList } from "../../components/DayColumnList";
 
 export class SchedulerWeekPCPageContent extends React.Component {
@@ -100,8 +100,7 @@ export class SchedulerWeekPCPageContent extends React.Component {
                     isEventsLoadingFinished={ isEventsLoadingFinished }
                     errorDuringEventsLoading={ errorDuringEventsLoading }
                     // errorDuringEventsLoading={ new Error( "АБОООБА" ) }
-                    firstColumnDate={ dateStartingTheWeek }
-                    lastColumnDate={ dateFinishingTheWeek }
+                    gridTemplateString="40px 1fr / 50px repeat( 7, 1fr )"
                     renderWhenSuccessfullyLoaded={ () => (
                         <DayColumnList
                             firstColumnDate={ dateStartingTheWeek }

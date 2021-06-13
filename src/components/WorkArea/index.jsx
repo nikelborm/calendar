@@ -1,5 +1,4 @@
 import React from "react";
-import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
 
 import { ColumnsContainer } from "./components/ColumnsContainer";
 import { ReportWrapper } from "./components/ReportWrapper";
@@ -10,8 +9,7 @@ export class WorkArea extends React.Component {
 			renderWhenSuccessfullyLoaded,
 			isEventsLoadingFinished,
 			errorDuringEventsLoading,
-			firstColumnDate,
-			lastColumnDate,
+			gridTemplateString,
 		} = this.props;
 		let report;
 		if ( !isEventsLoadingFinished ) report = "Пожалуйста подождите, идёт загрузка данных";
@@ -22,10 +20,7 @@ export class WorkArea extends React.Component {
 		</p>;
 		return (
 			<ColumnsContainer
-				amountOfColumns={ differenceInCalendarDays(
-					lastColumnDate,
-					firstColumnDate
-				) + 1/* так как есть ещё HourMarkersColumn */ }
+				gridTemplateString={ gridTemplateString }
 			>
 				{ report
 					? <ReportWrapper children={ report }/>

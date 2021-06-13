@@ -1,15 +1,18 @@
 import React from "react";
-import startOfWeek from "date-fns/startOfWeek";
-import endOfWeek from "date-fns/endOfWeek";
 import add from "date-fns/add";
 import sub from "date-fns/sub";
+import startOfDay from "date-fns/startOfDay";
 
 import { Service } from "../../ServicePlaceholder";
 import { TopMenu } from "../../components/TopMenu";
 import { RightSidebar } from "../../components/RightSidebar";
 import { PageContentContainer } from "../../components/PageContentContainer";
-import { WorkArea } from "./WorkArea";
-import { DayColumnList } from "../../components/DayColumnList";
+import { WorkArea } from "../../components/WorkArea";
+import { DayColumn } from "../../components/DayColumn";
+import { CurrentMomentRedLine } from "../../components/DayColumnList/components/CurrentMomentRedLine";
+import { HourLines } from "../../components/DayColumnList/components/HourLines";
+import { HourMarkersColumn } from "../../components/DayColumnList/components/HourMarkersColumn";
+import { DayPreview } from "./DayPreviewPlaceholder";
 
 export class SchedulerDayPCPageContent extends React.Component {
     eventsLoadingController = new AbortController();
@@ -17,26 +20,21 @@ export class SchedulerDayPCPageContent extends React.Component {
 		isEventsLoadingFinished: false,
         errorDuringEventsLoading: null,
         // want MapWithDatesOfDaysAndArraysOfItsEvents
-		eventsInSelectedWeekGroupedByDay: null,
+		eventsInSelectedDay: null,
 		idOfClickedEvent: "", // TODO: Подумать как организовать всплывающий тултип
         isAnEventExpanded: false,
-        dateStartingTheWeek: startOfWeek( new Date(), { weekStartsOn: 1 } ),
-        dateFinishingTheWeek: endOfWeek( new Date(), { weekStartsOn: 1 } ),
+        dayDate: startOfDay( new Date() ),
 	}
-    loadEventsForAWeekGroupedByDay = async (
-        dateStartingTheWeek,
-        dateFinishingTheWeek
-    ) => {
+    loadEventsForADay = async dayDate => {
         try {
             this.eventsLoadingController = new AbortController();
-            const { events } = await Service.getEventsBetweenDatesGroupedByDay(
-                dateStartingTheWeek,
-                dateFinishingTheWeek,
+            const { events } = await Service.getEventsForADay(
+                dayDate,
                 this.eventsLoadingController
             );
             this.setState( {
                 isEventsLoadingFinished: true,
-                eventsInSelectedWeekGroupedByDay: events
+                eventsInSelectedDay: events
             } );
         } catch ( error ) {
             if ( error.name === "AbortError" ) return;
@@ -46,36 +44,30 @@ export class SchedulerDayPCPageContent extends React.Component {
             } );
         }
     };
-    shiftDateAndLoadItsEvents = (
-        newStartDateBuilder,
-        newFinishDateBuilder = newStartDateBuilder
-    ) => {
+    shiftDateAndLoadItsEvents = newDateBuilder => {
         this.eventsLoadingController.abort();
         this.setState( {
             isEventsLoadingFinished: false,
             errorDuringEventsLoading: null,
-            eventsInSelectedWeekGroupedByDay: null,
+            eventsInSelectedDay: null,
         } );
-        const dateStartingTheWeek = newStartDateBuilder( this.state.dateStartingTheWeek );
-        const dateFinishingTheWeek = newFinishDateBuilder( this.state.dateFinishingTheWeek );
-        this.setState( { dateStartingTheWeek, dateFinishingTheWeek } );
-        this.loadEventsForAWeekGroupedByDay( dateStartingTheWeek, dateFinishingTheWeek );
+        const dayDate = newDateBuilder( this.state.dayDate );
+        this.setState( { dayDate } );
+        this.loadEventsForADay( dayDate );
     };
-    goToPreviousWeekAndLoadItsEvents = () => this.shiftDateAndLoadItsEvents(
-        date => sub( date, { weeks: 1 } )
+    goToPreviousDayAndLoadItsEvents = () => this.shiftDateAndLoadItsEvents(
+        date => sub( date, { days: 1 } )
     );
-    goToNextWeekAndLoadItsEvents = () => this.shiftDateAndLoadItsEvents(
-        date => add( date, { weeks: 1 } )
+    goToNextDayAndLoadItsEvents = () => this.shiftDateAndLoadItsEvents(
+        date => add( date, { days: 1 } )
     );
-    goToDateAndLoadItsWeekEvents = date => this.shiftDateAndLoadItsEvents(
-        () => startOfWeek( date, { weekStartsOn: 1 } ),
-        () => endOfWeek( date, { weekStartsOn: 1 } )
+    goToDateAndLoadItsDayEvents = date => this.shiftDateAndLoadItsEvents(
+        () => startOfDay( date )
     );
-    goToCurrentWeekAndLoadItsEvents = () => this.goToDateAndLoadItsWeekEvents( new Date() );
+    goToCurrentDayAndLoadItsEvents = () => this.goToDateAndLoadItsEvents( new Date() );
 	componentDidMount() {
-		this.loadEventsForAWeekGroupedByDay(
-            this.state.dateStartingTheWeek,
-            this.state.dateFinishingTheWeek
+		this.loadEventsForADay(
+            this.state.dayDate
         );
 	}
     componentWillUnmount() {
@@ -83,36 +75,42 @@ export class SchedulerDayPCPageContent extends React.Component {
     }
     render() {
         const {
-            eventsInSelectedWeekGroupedByDay,
+            eventsInSelectedDay,
             isEventsLoadingFinished,
             errorDuringEventsLoading,
-            dateStartingTheWeek,
-            dateFinishingTheWeek,
+            dayDate,
         } = this.state;
+        console.log('this.state: ', this.state);
         return (
             <PageContentContainer>
                 <TopMenu
-                    previousSlideOnClick={ this.goToPreviousWeekAndLoadItsEvents }
-                    nextSlideOnClick={ this.goToNextWeekAndLoadItsEvents }
-                    goTodayOnClick={ this.goToCurrentWeekAndLoadItsEvents }
+                    previousSlideOnClick={ this.goToPreviousDayAndLoadItsEvents }
+                    nextSlideOnClick={ this.goToNextDayAndLoadItsEvents }
+                    goTodayOnClick={ this.goToCurrentDayAndLoadItsEvents }
                 />
                 <WorkArea
                     isEventsLoadingFinished={ isEventsLoadingFinished }
                     errorDuringEventsLoading={ errorDuringEventsLoading }
                     // errorDuringEventsLoading={ new Error( "АБОООБА" ) }
-                    firstColumnDate={ dateStartingTheWeek }
-                    lastColumnDate={ dateFinishingTheWeek }
+                    /* CurrentDayColumn, HourMarkersColumn, DayPreview */
+                    gridTemplateString="40px 1fr / 50px 1fr 1fr"
                     renderWhenSuccessfullyLoaded={ () => (
-                        <DayColumnList
-                            firstColumnDate={ dateStartingTheWeek }
-                            lastColumnDate={ dateFinishingTheWeek }
-                            eventsGroupedByDay={ eventsInSelectedWeekGroupedByDay }
-                        />
+                        <>
+                            <CurrentMomentRedLine/>
+                            <HourLines/>
+                            <HourMarkersColumn/>
+                            <DayColumn
+                                dayDate={ dayDate }
+                                columnNumber={ 2 }
+                                events={ eventsInSelectedDay }
+                            />
+                            <DayPreview/>
+                        </>
                     ) }
 				/>
 				{/* <EventInfoTip/> */}
                 <RightSidebar
-                    goToDateAndLoadItsWeekEvents={ this.goToDateAndLoadItsWeekEvents }
+                    goToDateAndLoadItsDayEvents={ this.goToDateAndLoadItsDayEvents }
                 />
             </PageContentContainer>
         );

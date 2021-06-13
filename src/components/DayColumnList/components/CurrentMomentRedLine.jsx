@@ -11,7 +11,7 @@ LineContainer.dispalayName = "LineContainer";
 
 const Line = styled.div`
 	position: absolute;
-	border-top: 3px solid black;
+	border-top: 2px solid black;
 	width: 100%;
 	top: ${ props => props.linePosition * 100 + "%" };
 `;
@@ -27,7 +27,7 @@ const DecorativeDot = styled.svg`
 
 export class CurrentMomentRedLine extends React.Component {
 	state = {
-		time: new Date( "2021-06-13T20:59:30.455Z" ),
+		time: new Date(),
 	};
 	componentDidMount() {
 		this.intervalID = setInterval( () => this.tick(), 60000 );
