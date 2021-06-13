@@ -101,6 +101,14 @@ export class SchedulerWeekPCPageContent extends React.Component {
                     errorDuringEventsLoading={ errorDuringEventsLoading }
                     // errorDuringEventsLoading={ new Error( "АБОООБА" ) }
                     gridTemplateString="40px 1fr / 50px repeat( 7, 1fr )"
+                    renderLoadingMessage={ () =>
+                        <>
+                            Загружаются мероприятия за период: <br/>
+                            { this.state.dateStartingTheWeek.toLocaleDateString( "ru", { day: "2-digit", month:"long" } ) }
+                            {" - "}
+                            { this.state.dateFinishingTheWeek.toLocaleDateString( "ru", { day: "2-digit", month:"long" } ) }
+                        </>
+                    }
                     renderWhenSuccessfullyLoaded={ () => (
                         <DayColumnList
                             firstColumnDate={ dateStartingTheWeek }
