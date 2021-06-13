@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { amountOfHourMarkers } from "../../../timeConstants";
 
 const LinesContainer = styled.div`
 	display: flex;
@@ -19,14 +20,11 @@ const Line = styled.div`
 Line.displayName = "Line";
 
 export class HourLines extends React.PureComponent {
+	lines = Array.from( { length: amountOfHourMarkers } ).map( ( h, i ) => <Line key={ i }/> );
 	render() {
-		let lines = [];
-		for ( let i = 1; i <= 14; i++ )
-			lines.push( <Line key={ i }/> );
-
 		return (
 			<LinesContainer>
-				{ lines }
+				{ this.lines }
 			</LinesContainer>
 		);
 	}

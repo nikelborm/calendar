@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { hourOfColumnBottom, hourOfColumnTop, minutesInEventsColumn } from "../../../timeConstants";
 
 const LineContainer = styled.div`
 	grid-area: 2 / 1 / -1 / -1;
@@ -18,13 +19,15 @@ Line.dispalayName = "Line";
 
 const DecorativeDot = styled.svg`
 	position: absolute;
+	height:20px;
+	width:20px;
 	left: 45px;
 	top: calc(${ props => props.linePosition * 100 + "%" } - 8px);
 `;
 
 export class CurrentMomentRedLine extends React.Component {
 	state = {
-		time: new Date(),
+		time: new Date( "2021-06-13T20:59:30.455Z" ),
 	};
 	componentDidMount() {
 		this.intervalID = setInterval( () => this.tick(), 60000 );
@@ -33,19 +36,26 @@ export class CurrentMomentRedLine extends React.Component {
 		clearInterval( this.intervalID );
 	}
 	tick = () => {
-		this.setState({
+		this.setState( {
 			time: new Date(),
-		});
+		} );
 	}
 	render() {
-		const hourOfColumnBottom = 21;
-		const hourOfColumnTop = 8;
-		const minutesInEventsColumn = ( hourOfColumnBottom - hourOfColumnTop ) * 60;
+		let { time } = this.state;
 
-		const dateHours = new Date(this.state.time).getHours();
-		const dateMinutes = new Date(this.state.time).getMinutes();
+		let dateHours = time.getHours();
+		let dateMinutes = time.getMinutes();
 
-		const eventMarginTopInMinutes = (dateHours - hourOfColumnTop ) * 60 + dateMinutes;
+		if ( dateHours >= hourOfColumnBottom ) {
+			dateHours = hourOfColumnBottom;
+			dateMinutes = 0;
+		}
+		if ( dateHours < hourOfColumnTop ) {
+			dateHours = hourOfColumnTop;
+			dateMinutes = 0;
+		}
+
+		const eventMarginTopInMinutes = ( dateHours - hourOfColumnTop ) * 60 + dateMinutes;
 		const ratioOfEventAndColumnHeights = eventMarginTopInMinutes  / minutesInEventsColumn;
 
 		return (

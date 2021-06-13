@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Service } from "../../../../../../ServicePlaceholder";
+import { Service } from "../../../../ServicePlaceholder";
 
 import { Header } from "./components/Header";
 import { MarkAllAsReadButton } from "./components/MarkAllAsReadButton";
