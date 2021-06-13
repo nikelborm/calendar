@@ -4,12 +4,12 @@ import endOfWeek from "date-fns/endOfWeek";
 import add from "date-fns/add";
 import sub from "date-fns/sub";
 
-import { TopMenu } from "./components/TopMenu";
-import { RightSidebar } from "./components/RightSidebar";
 import { Service } from "../../ServicePlaceholder";
-import { PageContentContainer } from "./components/PageContentContainer";
-import { WorkArea } from "./components/WorkArea";
-import { DayColumnList } from "./components/DayColumnList";
+import { TopMenu } from "../../components/TopMenu";
+import { RightSidebar } from "../../components/RightSidebar";
+import { PageContentContainer } from "../../components/PageContentContainer";
+import { WorkArea } from "./WorkArea";
+import { DayColumnList } from "../../components/DayColumnList";
 
 export class SchedulerWeekPCPageContent extends React.Component {
     eventsLoadingController = new AbortController();
