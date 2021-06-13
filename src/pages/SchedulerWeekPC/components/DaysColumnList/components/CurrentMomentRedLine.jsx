@@ -5,18 +5,18 @@ import styled from 'styled-components';
 
 const Line = styled.div`
 	position: absolute;
-	top: ${props => (props.linePosition + "px")};
-	left: 45px;
-	z-index: 998;
+	width: 100%;
+	top: ${props => (props.linePosition * 100 + "%")};
+	
 `;
 Line.dispalayName = "Line";
 
 const BlackLine = styled.div`
 	position: absolute;
 	border-top: 3px solid black;
-	width: 1520px;
+	width: 100%;
 	top: 8px;
-	left: 5px;
+	
 	
 `;
 BlackLine.dispalayName = "BlackLine";
@@ -53,31 +53,21 @@ export class CurrentMomentRedLine extends React.Component {
 
 	render() {
 
-		let nowTime = new Date(this.state.time).getHours() * 60 + new Date(this.state.time).getMinutes();
-		let windowHeight = window.innerHeight;
-		let windowWidth = window.innerWidth;
-		const startPos = windowHeight;
-		const endPos = windowHeight;
+		const hourOfColumnBottom = 21;
+		const hourOfColumnTop = 8;
+		const minutesInEventsColumn = ( hourOfColumnBottom - hourOfColumnTop ) * 60;
 
-		let linePosition;
-		if (nowTime > 480 && nowTime < 1260){
-			let top = 95  + (nowTime - 480);
-			linePosition = top * 1.03;
-		}
-		if (nowTime >= 1260){
-			linePosition = endPos * 0.9;
-		}
-		if (nowTime <= 480){
-			linePosition = startPos * 0.1;
-		}
+		const dateHours = new Date(this.state.time).getHours();
+		const dateMinutes = new Date(this.state.time).getMinutes();
 
-		console.log(nowTime);
-		console.log(linePosition);
+		const eventMarginTopInMinutes = (dateHours - hourOfColumnTop ) * 60 + dateMinutes;
+		const ratioOfEventAndColumnHeights = eventMarginTopInMinutes  / minutesInEventsColumn;
+
 		return (
-			<Line linePosition={linePosition}>
+			<Line linePosition={ratioOfEventAndColumnHeights}>
 				<BlackDot>
 					<svg height="100" width="100">
-					<circle cx="10" cy="10" r="6" stroke="black" stroke-width="1" fill="black" />
+					<circle cx="55" cy="10" r="6" stroke="black" stroke-width="1" fill="black" />
 					</svg>
 				</BlackDot>
 				<BlackLine></BlackLine>
