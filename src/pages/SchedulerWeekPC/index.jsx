@@ -33,7 +33,7 @@ export class SchedulerWeekPCPageContent extends React.Component {
             const { eventsGroupedByDay } = await Service.getEventsBetweenDatesGroupedByDay(
                 dateStartingTheWeek,
                 dateFinishingTheWeek,
-                this.eventsLoadingController
+                this.eventsLoadingController.signal
             );
             this.setState( {
                 isEventsLoadingFinished: true,

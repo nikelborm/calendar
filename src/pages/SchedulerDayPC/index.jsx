@@ -27,7 +27,7 @@ export class SchedulerDayPCPageContent extends React.Component {
             this.eventsLoadingController = new AbortController();
             const { events } = await Service.getEventsForADay(
                 dayDate,
-                this.eventsLoadingController
+                this.eventsLoadingController.signal
             );
             this.setState( {
                 isEventsLoadingFinished: true,
