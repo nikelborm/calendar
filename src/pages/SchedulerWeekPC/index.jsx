@@ -29,14 +29,14 @@ export class SchedulerWeekPCPageContent extends React.Component {
     ) => {
         try {
             this.eventsLoadingController = new AbortController();
-            const { events } = await Service.getEventsBetweenDatesGroupedByDay(
+            const { eventsGroupedByDay } = await Service.getEventsBetweenDatesGroupedByDay(
                 dateStartingTheWeek,
                 dateFinishingTheWeek,
                 this.eventsLoadingController
             );
             this.setState( {
                 isEventsLoadingFinished: true,
-                eventsInSelectedWeekGroupedByDay: events
+                eventsInSelectedWeekGroupedByDay: eventsGroupedByDay
             } );
         } catch ( error ) {
             if ( error.name === "AbortError" ) return;
