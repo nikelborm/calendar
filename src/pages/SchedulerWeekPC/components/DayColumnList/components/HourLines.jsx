@@ -1,33 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
-const LinesContainer = styled.div`
+const Line = styled.div`
+	justify-content:space-between;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	z-index: 1;
+	position: relative;
 	grid-area: 2 / 2 / -1 / -1;
-	z-index: 2;
+	margin:0;
 `;
-LinesContainer.displayName = "LinesContainer";
 
-const Line = styled.div`
-	border: none;
-	border-bottom: 1px solid black;
-	width: 100%;
-	height: 0px;
-`;
-Line.displayName = "Line";
-
-export class HourLines extends React.PureComponent {
+export class HourLines extends React.Component {
+	 
 	render() {
 		let lines = [];
-		for ( let i = 1; i <= 14; i++ )
-			lines.push( <Line key={ i }/> );
+		for (let i =1; i<=14; i++)
+		lines.push(<hr/>);
 
 		return (
-			<LinesContainer>
-				{ lines }
-			</LinesContainer>
+			<Line>	
+				{lines}
+			</Line>
 		);
 	}
 }

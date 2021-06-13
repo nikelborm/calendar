@@ -14,7 +14,7 @@ export class WorkArea extends React.Component {
 			lastColumnDate,
 		} = this.props;
 		let report;
-		if ( !isEventsLoadingFinished ) report = "Пожалуйста подождите, идёт загрузка данных";
+		if ( !isEventsLoadingFinished ) report = "Идёт загрузка мероприятий с";
 		if ( errorDuringEventsLoading ) report = <p>
 			<p>Возник взлом жопы, пожалуйста простите нас</p>
 			<p>Error name: { errorDuringEventsLoading.name }</p>
@@ -28,7 +28,10 @@ export class WorkArea extends React.Component {
 				) + 1/* так как есть ещё HourMarkersColumn */ }
 			>
 				{ report
-					? <ReportWrapper children={ report }/>
+					? <ReportWrapper 
+					children={ report }
+					startWeek={this.props.firstColumnDate}
+					finishWeek={this.props.lastColumnDate}/>
 					: renderWhenSuccessfullyLoaded()
 				}
 			</ColumnsContainer>
