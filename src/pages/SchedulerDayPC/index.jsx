@@ -8,11 +8,8 @@ import { TopMenu } from "../../components/TopMenu";
 import { RightSidebar } from "../../components/RightSidebar";
 import { PageContentContainer } from "../../components/PageContentContainer";
 import { WorkArea } from "../../components/WorkArea";
-import { DayColumn } from "../../components/DayColumn";
-import { CurrentMomentRedLine } from "../../components/DayColumnList/components/CurrentMomentRedLine";
-import { HourLines } from "../../components/DayColumnList/components/HourLines";
-import { HourMarkersColumn } from "../../components/DayColumnList/components/HourMarkersColumn";
-import { DayPreview } from "./DayPreviewPlaceholder";
+import { MainContent } from "./components/MainContent";
+import { LoadingMessage } from "./components/LoadingMessage";
 
 export class SchedulerDayPCPageContent extends React.Component {
     eventsLoadingController = new AbortController();
@@ -80,7 +77,6 @@ export class SchedulerDayPCPageContent extends React.Component {
             errorDuringEventsLoading,
             dayDate,
         } = this.state;
-        console.log('this.state: ', this.state);
         return (
             <PageContentContainer>
                 <TopMenu
@@ -94,23 +90,10 @@ export class SchedulerDayPCPageContent extends React.Component {
                     // errorDuringEventsLoading={ new Error( "АБОООБА" ) }
                     /* CurrentDayColumn, HourMarkersColumn, DayPreview */
                     gridTemplateString="40px 1fr / 50px 1fr 1fr"
-                    renderLoadingMessage={ () =>
-                        "Загружаются мероприятия на " +
-                        this.state.dayDate.toLocaleDateString( "ru", { weekday: "long", day: "2-digit", month:"long" } )
-                    }
-                    renderWhenSuccessfullyLoaded={ () => (
-                        <>
-                            <CurrentMomentRedLine/>
-                            <HourLines/>
-                            <HourMarkersColumn/>
-                            <DayColumn
-                                dayDate={ dayDate }
-                                columnNumber={ 2 }
-                                events={ eventsInSelectedDay }
-                            />
-                            <DayPreview/>
-                        </>
-                    ) }
+                    dayDate={ dayDate }
+                    eventsInSelectedDay={ eventsInSelectedDay }
+                    LoadingMessage={ LoadingMessage }
+                    MainContent={ MainContent }
 				/>
 				{/* <EventInfoTip/> */}
                 <RightSidebar

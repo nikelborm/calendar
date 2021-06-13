@@ -6,15 +6,19 @@ import { Loading } from "./components/Loading";
 export class WorkArea extends React.Component {
 	render() {
 		const {
-			renderWhenSuccessfullyLoaded,
-			renderLoadingMessage,
+			MainContent,
+			LoadingMessage,
 			isEventsLoadingFinished,
 			errorDuringEventsLoading,
 			gridTemplateString,
 		} = this.props;
-		let report;
-		if ( !isEventsLoadingFinished ) report = <Loading>{ renderLoadingMessage() }</Loading>;
-		if ( errorDuringEventsLoading ) report = <p>
+		let accessoryСontent;
+		if ( !isEventsLoadingFinished ) accessoryСontent = (
+			<Loading>
+				<LoadingMessage { ...this.props } />
+			</Loading>
+		);
+		if ( errorDuringEventsLoading ) accessoryСontent = <p>
 			<p>Возник взлом жопы, пожалуйста простите нас</p>
 			<p>Error name: { errorDuringEventsLoading.name }</p>
 			<p>Error message: { errorDuringEventsLoading.message }</p>
@@ -23,7 +27,7 @@ export class WorkArea extends React.Component {
 			<ColumnsContainer
 				gridTemplateString={ gridTemplateString }
 			>
-				{ report || renderWhenSuccessfullyLoaded() }
+				{ accessoryСontent || <MainContent { ...this.props } /> }
 			</ColumnsContainer>
 		);
 	}
