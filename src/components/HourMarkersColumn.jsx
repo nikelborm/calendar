@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { amountOfHourMarkers, hourOfColumnTop } from "../../../timeConstants";
+import { amountOfHourMarkers, hourOfColumnTop } from "../timeConstants";
 
 const MarkersContainer = styled.div`
 	grid-row-start: 2;

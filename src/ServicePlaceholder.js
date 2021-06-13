@@ -1,14 +1,28 @@
-const imitateLongTimeLoading = () => new Promise(
+const imitateLongTimeLoading = abortController => new Promise(
     // TODO: реализовать поведение для отмены запроса через abortController
-    resolve => setTimeout(
-        () => resolve(),
-        1000
-    )
+    ( resolve, reject ) => {
+        const loadingtimeout = setTimeout(
+            () => {
+                clearInterval( clearer );
+                resolve();
+            },
+            2000
+        )
+        const clearer = setInterval( () => {
+            if( abortController.signal.aborted ) {
+                clearInterval( clearer );
+                clearTimeout( loadingtimeout );
+                const error = new Error();
+                error.name = "AbortError";
+                reject( error );
+            }
+        }, 100 );
+    }
 );
 
 export class Service {
     static async getEventsBetweenDatesGroupedByDay( startDate, endDate, abortController ) {
-        await imitateLongTimeLoading();
+        await imitateLongTimeLoading( abortController );
         // В данной реализации никакие ошибки не могут быть возвращены,
         // Но сетевые запросы могут их вернуть и тут в сервисе все возможные
         // варианты ошибок обрабатываются и возвращаются, и уже задача программиста,
@@ -84,7 +98,7 @@ export class Service {
         }
     }
     static async getEventsForADay( dayDate, abortController ) {
-        await imitateLongTimeLoading();
+        await imitateLongTimeLoading( abortController );
         // В данной реализации никакие ошибки не могут быть возвращены,
         // Но сетевые запросы могут их вернуть и тут в сервисе все возможные
         // варианты ошибок обрабатываются и возвращаются, и уже задача программиста,

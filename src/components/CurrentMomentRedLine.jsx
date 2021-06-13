@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { hourOfColumnBottom, hourOfColumnTop, minutesInEventsColumn } from "../../../timeConstants";
+import { hourOfColumnBottom, hourOfColumnTop, minutesInEventsColumn } from "../timeConstants";
 
 const LineContainer = styled.div`
 	grid-area: 2 / 1 / -1 / -1;
