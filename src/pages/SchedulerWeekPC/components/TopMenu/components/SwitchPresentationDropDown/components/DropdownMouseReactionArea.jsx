@@ -10,5 +10,6 @@ export const DropdownMouseReactionArea = styled.div`
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;
     cursor: pointer;
+    z-index: 999;
 `;
 DropdownMouseReactionArea.displayName = "DropdownMouseReactionArea";

@@ -19,7 +19,6 @@ export class DayColumnList extends Component {
         return (
             <>
                 <HourMarkersColumn/>
-                <CurrentMomentRedLine/>
                 <HourLines/>
                 { eachDayOfInterval( { start: this.props.firstColumnDate, end: this.props.lastColumnDate } ).map( ( dayDate, index ) => (
                     <DayColumn
@@ -38,6 +37,7 @@ export class DayColumnList extends Component {
                             // Мы создаём дату полночь в гринвиче, на основе локальной даты полночи
                     />
                 ) ) }
+                <CurrentMomentRedLine/>
             </>
         )
     }

@@ -12,7 +12,7 @@ LinesContainer.displayName = "LinesContainer";
 
 const Line = styled.div`
 	border: none;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #b4b4b4;
 	width: 100%;
 	height: 0px;
 `;
