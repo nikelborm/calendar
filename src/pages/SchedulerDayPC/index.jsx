@@ -94,6 +94,10 @@ export class SchedulerDayPCPageContent extends React.Component {
                     // errorDuringEventsLoading={ new Error( "АБОООБА" ) }
                     /* CurrentDayColumn, HourMarkersColumn, DayPreview */
                     gridTemplateString="40px 1fr / 50px 1fr 1fr"
+                    renderLoadingMessage={ () =>
+                        "Загружаются мероприятия на " +
+                        this.state.dayDate.toLocaleDateString( "ru", { weekday: "long", day: "2-digit", month:"long" } )
+                    }
                     renderWhenSuccessfullyLoaded={ () => (
                         <>
                             <CurrentMomentRedLine/>

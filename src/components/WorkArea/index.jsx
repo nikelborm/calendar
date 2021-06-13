@@ -1,18 +1,19 @@
 import React from "react";
 
 import { ColumnsContainer } from "./components/ColumnsContainer";
-import { ReportWrapper } from "./components/ReportWrapper";
+import { Loading } from "./components/Loading";
 
 export class WorkArea extends React.Component {
 	render() {
 		const {
 			renderWhenSuccessfullyLoaded,
+			renderLoadingMessage,
 			isEventsLoadingFinished,
 			errorDuringEventsLoading,
 			gridTemplateString,
 		} = this.props;
 		let report;
-		if ( !isEventsLoadingFinished ) report = "Пожалуйста подождите, идёт загрузка данных";
+		if ( !isEventsLoadingFinished ) report = <Loading>{ renderLoadingMessage() }</Loading>;
 		if ( errorDuringEventsLoading ) report = <p>
 			<p>Возник взлом жопы, пожалуйста простите нас</p>
 			<p>Error name: { errorDuringEventsLoading.name }</p>
@@ -22,10 +23,7 @@ export class WorkArea extends React.Component {
 			<ColumnsContainer
 				gridTemplateString={ gridTemplateString }
 			>
-				{ report
-					? <ReportWrapper children={ report }/>
-					: renderWhenSuccessfullyLoaded()
-				}
+				{ report || renderWhenSuccessfullyLoaded() }
 			</ColumnsContainer>
 		);
 	}
