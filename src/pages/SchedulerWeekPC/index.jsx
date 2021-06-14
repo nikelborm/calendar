@@ -110,7 +110,7 @@ export class SchedulerWeekPCPageContent extends React.Component {
 				/>
 				{/* <EventInfoTip/> */}
                 <RightSidebar
-                    goToDateAndLoadItsWeekEvents={ this.goToDateAndLoadItsWeekEvents }
+                    goToDateAndLoadItsEvents={ this.goToDateAndLoadItsWeekEvents }
                 />
             </PageContentContainer>
         );

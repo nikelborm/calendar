@@ -12,8 +12,8 @@ export class WeekChooser extends React.Component {
 		return (
 			<div>
 				<Calendar
-					onChange ={this.props.goToDateAndLoadItsWeekEvents }
-					value={this.state.date}
+					onChange={ this.props.goToDateAndLoadItsEvents }
+					value={ this.state.date }
 				/>
 			</div>
 		);
