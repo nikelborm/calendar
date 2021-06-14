@@ -9,7 +9,7 @@ const MarkAllAsReadButtonText = styled.button`
 	font-size: 15px;
 	line-height: 16px;
 	text-align: center;
-	background:#ffffff;
+	background:#efefef;
 	border: 2px solid #5F5F5F;
 	border-style: solid none solid none;
 	cursor: pointer;
