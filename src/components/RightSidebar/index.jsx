@@ -7,7 +7,7 @@ export class RightSidebar extends React.Component {
 	render() {
 		return (
 			<SidebarContent>
-				<WeekChooser goToDateAndLoadItsWeekEvents={this.props.goToDateAndLoadItsWeekEvents}/>
+				<WeekChooser goToDateAndLoadItsEvents={this.props.goToDateAndLoadItsEvents}/>
 				<EventUpdatesNotifications/>
 			</SidebarContent>
 		);

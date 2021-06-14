@@ -61,7 +61,7 @@ export class SchedulerDayPCPageContent extends React.Component {
     goToDateAndLoadItsDayEvents = date => this.shiftDateAndLoadItsEvents(
         () => startOfDay( date )
     );
-    goToCurrentDayAndLoadItsEvents = () => this.goToDateAndLoadItsEvents( new Date() );
+    goToCurrentDayAndLoadItsEvents = () => this.goToDateAndLoadItsDayEvents( new Date() );
 	componentDidMount() {
 		this.loadEventsForADay(
             this.state.dayDate
@@ -97,7 +97,7 @@ export class SchedulerDayPCPageContent extends React.Component {
 				/>
 				{/* <EventInfoTip/> */}
                 <RightSidebar
-                    goToDateAndLoadItsDayEvents={ this.goToDateAndLoadItsDayEvents }
+                    goToDateAndLoadItsEvents={ this.goToDateAndLoadItsDayEvents }
                 />
             </PageContentContainer>
         );
