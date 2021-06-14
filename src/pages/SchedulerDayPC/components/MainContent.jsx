@@ -4,7 +4,7 @@ import { HourMarkersColumn } from "../../../components/HourMarkersColumn";
 import { CurrentMomentRedLine } from "../../../components/CurrentMomentRedLine";
 import { HourLines } from "../../../components/HourLines";
 import { DayColumn } from "../../../components/DayColumn";
-import { EventInfoView } from "./EventInfoView";
+import { DayPreview } from "./DayPreviewPlaceholder";
 
 export function MainContent({ dayDate, eventsInSelectedDay }) {
     return (
@@ -16,7 +16,7 @@ export function MainContent({ dayDate, eventsInSelectedDay }) {
                 dayDate={dayDate}
                 columnNumber={2}
                 events={eventsInSelectedDay} />
-            <EventInfoView/>
+            <DayPreview/>
         </>
     );
 }
