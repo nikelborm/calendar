@@ -7,7 +7,7 @@ const LineContainer = styled.div`
 	position: relative;
 	z-index: 4;
 `;
-LineContainer.dispalayName = "LineContainer";
+LineContainer.displayName = "LineContainer";
 
 const Line = styled.div`
 	position: absolute;
@@ -15,7 +15,7 @@ const Line = styled.div`
 	width: 100%;
 	top: ${ props => props.linePosition * 100 + "%" };
 `;
-Line.dispalayName = "Line";
+Line.displayName = "Line";
 
 const DecorativeDot = styled.svg`
 	position: absolute;
@@ -24,6 +24,7 @@ const DecorativeDot = styled.svg`
 	left: 45px;
 	top: calc(${ props => props.linePosition * 100 + "%" } - 8px);
 `;
+DecorativeDot.displayName = "DecorativeDot";
 
 export class CurrentMomentRedLine extends React.Component {
 	state = {

@@ -8,7 +8,7 @@ import { Notification } from "./components/Notification";
 import { EventUpdatesNotificationsWrapper } from "./components/EventUpdatesNotificationsWrapper";
 import { ScrollableArea } from "./components/ScrollableArea";
 
-export class EventUpdatesNotifications extends React.Component {
+export class EventUpdatesNotifications extends React.PureComponent {
 	render() {
 		const { notifications } = Service.getNotification();
 		return (
@@ -26,4 +26,3 @@ export class EventUpdatesNotifications extends React.Component {
 		);
 	}
 }
-
