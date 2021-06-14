@@ -10,7 +10,7 @@ const HeaderNotificationCard = styled.div`
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-size: 15px;
 	font-weight: 600;
-	background: #ffffff;
+	background: #efefef;
 	width:300px;
 `;
 HeaderNotificationCard.displayName = "HeaderNotificationCard";
