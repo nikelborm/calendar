@@ -4,16 +4,35 @@ import { Service } from "../../../ServicePlaceholder";
 import {DayPreview} from "./DayPreviewPlaceholder";
 
 const PreviewHeader = styled.div`
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 500;
     font-size: 30px;
     text-align: center;
 `;
-const EventName = styled.div``;
-const EventTime = styled.div``;
-const EventClass = styled.div``;
-const EventDescription = styled.div``;
-const EventTeacher = styled.div``;
+const EventName = styled.div`
+    font-size: 25px;
+    margin: 20px auto 20px 15%;
+`;
+
+const EventTime = styled.div`
+    font-size: 20px;
+    margin: 20px auto 20px 15%;
+`;
+
+const EventClass = styled.div`
+    font-size: 20px;
+    margin: 20px auto 20px 15%;
+`;
+
+const EventDescription = styled.div`
+    font-size: 20px;
+    margin: 20px auto 20px 15%;
+    max-width:600px;
+`;
+
+const EventTeacher = styled.div`
+    font-size: 20px;
+    margin: 20px auto 20px 15%;
+`;
+
 
 const pad = v => ( "" + v ).padStart( 2, "0" );
 
@@ -38,8 +57,8 @@ export class EventInfoView extends React.Component {
                 :
                 { pad( dateEnd.getMinutes() ) }
             </EventTime>
-            <EventDescription>{Service.getEventsInfoView().InfoView[0].eventDescription}</EventDescription>
             <EventTeacher>{Service.getEventsInfoView().InfoView[0].eventTeacher}</EventTeacher>
+            <EventDescription>{Service.getEventsInfoView().InfoView[0].eventDescription}</EventDescription>
         </DayPreview>
         )
     }
