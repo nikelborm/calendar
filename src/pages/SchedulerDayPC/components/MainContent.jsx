@@ -16,7 +16,7 @@ export function MainContent({ dayDate, eventsInSelectedDay }) {
                 dayDate={dayDate}
                 columnNumber={2}
                 events={eventsInSelectedDay} />
-            <DayPreview />
+            <DayPreview/>
         </>
     );
 }
