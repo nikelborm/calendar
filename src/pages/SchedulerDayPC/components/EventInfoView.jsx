@@ -19,9 +19,9 @@ const pad = v => ( "" + v ).padStart( 2, "0" );
 
 export class EventInfoView extends React.Component {
     render() {
-        const dateBegin = new Date(Service.getEventsInfoView().InfoView[0].eventDateBegin);
-        const dateEnd = new Date(Service.getEventsInfoView().InfoView[0].eventDateEnd);
-        console.log(dateEnd);
+        let dateBegin = new Date(Service.getEventsInfoView().InfoView[0].eventDateBegin);
+        let dateEnd = new Date(Service.getEventsInfoView().InfoView[0].eventDateEnd);
+        console.log(dateBegin);
         return(
         <DayPreview>
             <PreviewHeader>
@@ -29,7 +29,15 @@ export class EventInfoView extends React.Component {
             </PreviewHeader>
             <EventName>{Service.getEventsInfoView().InfoView[0].eventName}</EventName>
             <EventClass>{Service.getEventsInfoView().InfoView[0].eventClassroom}</EventClass>
-            <EventTime>{dateBegin.getHours()} : {dateBegin.getMinutes()} - {dateEnd.getHours()} : {dateEnd.getMinutes()} </EventTime>
+            <EventTime>
+                { pad( dateBegin.getHours() ) }
+                :
+                { pad( dateBegin.getMinutes() ) }
+                { " - " }
+                { pad( dateEnd.getHours() ) }
+                :
+                { pad( dateEnd.getMinutes() ) }
+            </EventTime>
             <EventDescription>{Service.getEventsInfoView().InfoView[0].eventDescription}</EventDescription>
             <EventTeacher>{Service.getEventsInfoView().InfoView[0].eventTeacher}</EventTeacher>
         </DayPreview>
