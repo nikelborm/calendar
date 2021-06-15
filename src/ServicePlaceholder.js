@@ -208,4 +208,20 @@ export class Service {
             ]
         }
     }
+    static getEventsInfoView () {
+        return {
+            InfoView:[
+                {
+                    eventName: "Пр. Физика",
+                    eventDateBegin: "2021-06-15T12:00:00.000Z",
+                    eventDateEnd:   "2021-06-15T13:35:00.000Z",
+                    eventClassroom: "8 - 624",
+                    eventDescription: "Консультация перед экзаменом",
+                    eventTeacher: "Ершов Как-то там",
+                },
+            ]
+        }
+    }
+
 }
+
