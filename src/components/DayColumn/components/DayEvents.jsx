@@ -12,7 +12,7 @@ const EventsContainer = styled.div`
 `;
 EventsContainer.displayName = "EventsContainer";
 
-export class OneDayEvents extends React.Component {
+export class DayEvents extends React.Component {
 	render() {
 		return (
 			<EventsContainer columnNumber={ this.props.columnNumber }>

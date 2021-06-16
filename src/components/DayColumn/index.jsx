@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { DayHeader } from "./components/DayHeader";
-import { OneDayEvents } from "./components/OneDayEvents";
+import { DayEvents } from "./components/DayEvents";
 
 export class DayColumn extends Component {
     render() {
@@ -23,7 +23,7 @@ export class DayColumn extends Component {
                         }
                     ) }
                 />
-                <OneDayEvents
+                <DayEvents
                     columnNumber={ columnNumber }
                     events={ events }
                 />
