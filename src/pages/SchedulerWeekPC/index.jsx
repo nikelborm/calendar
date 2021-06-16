@@ -47,7 +47,7 @@ export class SchedulerWeekPCPageContent extends React.Component {
             } );
         }
     };
-    shiftDateAndLoadItsEvents = (
+    changeDateAndLoadItsEvents = (
         newStartDateBuilder,
         newFinishDateBuilder = newStartDateBuilder
     ) => {
@@ -62,13 +62,13 @@ export class SchedulerWeekPCPageContent extends React.Component {
         this.setState( { dateStartingTheWeek, dateFinishingTheWeek } );
         this.loadEventsForAWeekGroupedByDay( dateStartingTheWeek, dateFinishingTheWeek );
     };
-    goToPreviousWeekAndLoadItsEvents = () => this.shiftDateAndLoadItsEvents(
+    goToPreviousWeekAndLoadItsEvents = () => this.changeDateAndLoadItsEvents(
         date => sub( date, { weeks: 1 } )
     );
-    goToNextWeekAndLoadItsEvents = () => this.shiftDateAndLoadItsEvents(
+    goToNextWeekAndLoadItsEvents = () => this.changeDateAndLoadItsEvents(
         date => add( date, { weeks: 1 } )
     );
-    goToDateAndLoadItsWeekEvents = date => this.shiftDateAndLoadItsEvents(
+    goToDateAndLoadItsWeekEvents = date => this.changeDateAndLoadItsEvents(
         () => startOfWeek( date, { weekStartsOn: 1 } ),
         () => endOfWeek( date, { weekStartsOn: 1 } )
     );

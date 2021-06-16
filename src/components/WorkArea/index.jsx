@@ -2,6 +2,7 @@ import React from "react";
 
 import { ColumnsContainer } from "./components/ColumnsContainer";
 import { Loading } from "./components/Loading";
+import { ErrorDuringEventsLoading } from "./components/ErrorDuringEventsLoading";
 
 export class WorkArea extends React.Component {
 	render() {
@@ -18,11 +19,10 @@ export class WorkArea extends React.Component {
 				<LoadingMessage { ...this.props } />
 			</Loading>
 		);
-		if ( errorDuringEventsLoading ) accessoryСontent = <p>
-			<p>Возник взлом жопы, пожалуйста простите нас</p>
-			<p>Error name: { errorDuringEventsLoading.name }</p>
-			<p>Error message: { errorDuringEventsLoading.message }</p>
-		</p>;
+		if ( errorDuringEventsLoading ) accessoryСontent = 
+		<div>
+			<ErrorDuringEventsLoading errorDuringEventsLoading = { errorDuringEventsLoading } />
+		</div>;
 		return (
 			<ColumnsContainer
 				gridTemplateString={ gridTemplateString }
