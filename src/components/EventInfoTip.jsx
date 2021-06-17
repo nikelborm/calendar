@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-import { useState } from "react";
 
 import Tippy from '@tippyjs/react';
 import styled from 'styled-components';
@@ -48,15 +47,6 @@ const TipItem = styled.div`
 	margin-bottom: 7px;
 `;
 
-const CustomChild = forwardRef((props, ref) => {
-	return(
-		<Content ref={ref}>
-			<div>Название</div>
-			<div>Время</div>
-			<div>Класс</div>
-		</Content>
-	);
-})
 
 const CustomTippy = (
 	<Tip>
@@ -76,21 +66,17 @@ const CustomTippy = (
 		<TipItem>Группа: SSS-rank</TipItem>
 	</Tip>);
 
-function EventInfoTip() {
-	const [visible, setVisible] = useState(false);
-
-	const toggleButton = () => {
-		setVisible(!visible);
+export class EventInfoTip extends React.Component{
+	render() {
+		return (
+			<div>
+				<Tippy content={CustomTippy} palcement={'right'} delay={[200, 20]} interactive={'true'} trigger={'click'}>
+					<Content>
+						<div>Название</div>
+						<div>Время</div>
+						<div>Класс</div>
+					</Content>
+				</Tippy>
+			</div>);
 	}
-
-	return (
-		<div>
-			<Tippy content={CustomTippy} palcement={'right'} delay={[200, 100]} trigger={'click'} interactive={'true'}>
-				<CustomChild />
-			</Tippy>
-		</div>);
 }
-
-
-
-export default EventInfoTip;
