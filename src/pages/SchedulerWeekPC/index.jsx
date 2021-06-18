@@ -11,6 +11,7 @@ import { PageContentContainer } from "../../components/PageContentContainer";
 import { WorkArea } from "../../components/WorkArea";
 import { LoadingMessage } from "./components/LoadingMessage";
 import { MainContent } from "./components/MainContent";
+import {EventInfoTip} from "../../components/EventInfoTip";
 
 export class SchedulerWeekPCPageContent extends React.Component {
     eventsLoadingController = new AbortController();
@@ -112,6 +113,7 @@ export class SchedulerWeekPCPageContent extends React.Component {
                 <RightSidebar
                     goToDateAndLoadItsEvents={ this.goToDateAndLoadItsWeekEvents }
                 />
+                <EventInfoTip/>
             </PageContentContainer>
         );
     }
